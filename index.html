@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Luxury Western Cowgirl & Cowboy AI Prompt Generator</title>
+<style>
+:root{
+  --bg:#090604;--panel:#17100c;--panel2:#24160d;--gold:#f7c866;--bronze:#b17632;--cream:#fff1d0;--text:#fff8ea;--muted:#d7b98a;--red:#7b2815;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:Inter,Arial,sans-serif;color:var(--text);
+  background:radial-gradient(circle at top,#4b2a13 0,#160d08 45%,#050302 100%);
+  min-height:100vh;overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.17;
+  background-image:
+  radial-gradient(circle at 20% 20%,#f7c86655 0 2px,transparent 4px),
+  radial-gradient(circle at 70% 40%,#ffffff33 0 1px,transparent 3px),
+  linear-gradient(120deg,transparent,#f7c86618,transparent);
+  background-size:180px 180px,120px 120px,100% 100%;
+  animation:drift 14s linear infinite;
+}
+@keyframes drift{from{background-position:0 0,0 0,0 0}to{background-position:180px 180px,-120px 120px,0 0}}
+.wrap{max-width:1280px;margin:auto;padding:20px}
+.hero{
+  border:1px solid #f7c86666;border-radius:28px;padding:30px 22px;text-align:center;
+  background:linear-gradient(135deg,#2b1609dd,#090604ee),url('');
+  box-shadow:0 0 45px #f7c86622,inset 0 0 30px #000;
+}
+h1{
+  margin:0;font-size:clamp(36px,6vw,78px);letter-spacing:2px;line-height:.95;
+  text-transform:uppercase;text-shadow:0 0 18px #f7c86688;
+}
+.sub{color:var(--muted);font-size:18px;margin-top:12px}
+.marquee{margin:18px 0 0;overflow:hidden;border-radius:999px;border:1px solid #f7c86666;background:#0008;color:var(--gold);padding:10px}
+.marquee span{display:inline-block;white-space:nowrap;animation:mar 18s linear infinite;font-weight:800}
+@keyframes mar{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+.topActions,.presets,.grid,.outputs{margin-top:18px}
+.card{
+  background:linear-gradient(145deg,#1b100bcc,#090604ee);border:1px solid #f7c86655;border-radius:22px;
+  padding:16px;box-shadow:0 0 24px #0008, inset 0 0 18px #f7c86610;
+}
+.sectionTitle{font-size:22px;color:var(--gold);font-weight:900;margin:0 0 12px}
+button{
+  border:0;border-radius:999px;padding:11px 16px;background:linear-gradient(135deg,var(--gold),#a56625);
+  color:#160900;font-weight:900;cursor:pointer;box-shadow:0 0 16px #f7c86633;transition:.2s;
+}
+button:hover{transform:translateY(-1px);box-shadow:0 0 28px #f7c86666}
+button.secondary{background:#24160d;color:var(--cream);border:1px solid #f7c86666}
+button.locked{background:linear-gradient(135deg,#fff,#f7c866);outline:2px solid #fff}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap}
+.presets .btnrow button{font-size:13px;padding:9px 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+details{background:#110a07;border:1px solid #f7c86638;border-radius:18px;padding:12px}
+summary{cursor:pointer;font-weight:900;color:var(--gold);display:flex;justify-content:space-between;gap:8px}
+.field{margin-top:12px}
+label{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}
+select,input,textarea{
+  width:100%;background:#070403;color:var(--cream);border:1px solid #f7c86655;border-radius:12px;
+  padding:10px;outline:none;
+}
+select[multiple]{height:125px}
+.custom{margin-top:8px}
+.controlTop{display:flex;gap:8px;align-items:center;justify-content:space-between}
+.hidden{display:none!important}
+.out{
+  white-space:pre-wrap;background:#070403;border:1px solid #f7c86655;border-radius:16px;min-height:120px;padding:14px;
+  color:#fff8ea;line-height:1.45;
+}
+.outputs{display:grid;grid-template-columns:1fr;gap:16px}
+.copyline{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  padding:9px 12px;border-radius:999px;border:1px solid #f7c86666;background:#0b0604;color:var(--cream);cursor:pointer;font-weight:800;font-size:13px
+}
+.chip.active{background:linear-gradient(135deg,#f7c866,#9e5b1c);color:#120803}
+.sliderRow{display:grid;grid-template-columns:1fr 58px;gap:8px;align-items:center;margin:8px 0}
+input[type=range]{accent-color:#f7c866}
+.floatBtn{
+  position:fixed;right:16px;z-index:10;width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid #f7c866aa;background:#140a04;color:#f7c866;
+}
+#up{bottom:84px}#down{bottom:26px}
+.floatBtn{text-decoration:none;cursor:pointer}
+.footer{text-align:center;color:var(--gold);padding:28px;font-weight:900}
+.badge{display:inline-block;border:1px solid #f7c86666;border-radius:999px;padding:6px 10px;color:var(--muted);font-size:12px;margin:4px}
+</style>
+</head>
+<body>
+<div id="pageTop"></div>
+<a id="up" class="floatBtn" href="#pageTop" aria-label="Scroll to top">↑</a>
+<a id="down" class="floatBtn" href="#pageBottom" aria-label="Scroll to bottom">↓</a>
+
+<div class="wrap">
+  <header class="hero">
+    <h1>Luxury Western AI Prompt Generator</h1>
+    <div class="sub">Glossy cowgirl, cowboy, outlaw, saloon, ranch, horseback, wanted poster, whiskey lounge, and cinematic western editorial prompts.</div>
+    <div class="marquee"><span>✨Scroll-Stopping Content  • Premium Images • Because We’re Not Here to Look Broke ✨</span></div>
+  </header>
+
+  <section class="card presets">
+    <h2 class="sectionTitle">Presets</h2>
+    <div id="presetButtons" class="btnrow"></div>
+  </section>
+
+  <section class="card topActions">
+    <h2 class="sectionTitle">Main Controls</h2>
+    <div class="btnrow">
+      <button onclick="generateAll()">Generate</button>
+      <button onclick="randomizeAll()">Random</button>
+      <button onclick="randomPreset()">Random Preset</button>
+      <button onclick="clearAll()">Clear All</button>
+      <button onclick="copyBox('mainOutput')">Copy Main Prompt</button>
+      <button onclick="savePrompt()">Save Prompt</button>
+      <button onclick="makeVariations()">3 More Variations</button>
+      <button onclick="zoomOutMode()">Zoom Out / Fix Cropping</button>
+    </div>
+  </section>
+
+  <section id="controls" class="grid"></section>
+
+  <section class="card">
+    <h2 class="sectionTitle">Suno Music Controls</h2>
+    <label>Genre Selection</label><div id="genreChips" class="chips"></div>
+    <div class="field"><label>Style Influence Selection</label><div id="styleChips" class="chips"></div></div>
+    <div class="field"><label>Vocal Type</label><div id="vocalChips" class="chips"></div></div>
+    <div class="field">
+      <label>Audio Settings</label>
+      <div class="sliderRow"><input type="range" min="0" max="100" value="35" id="weirdness" oninput="showSliders()"><b id="weirdnessVal">35%</b></div>
+      <div class="sliderRow"><input type="range" min="0" max="100" value="70" id="styleInf" oninput="showSliders()"><b id="styleInfVal">70%</b></div>
+      <div class="sliderRow"><input type="range" min="0" max="100" value="55" id="audioInf" oninput="showSliders()"><b id="audioInfVal">55%</b></div>
+    </div>
+  </section>
+
+  <section class="outputs">
+    <div class="card"><div class="copyline"><h2 class="sectionTitle">Main Prompt</h2><button onclick="copyBox('mainOutput')">Copy</button></div><div id="mainOutput" class="out"></div></div>
+    <div class="card"><div class="copyline"><h2 class="sectionTitle">3 More Variations</h2><button onclick="copyBox('varOutput')">Copy</button></div><div id="varOutput" class="out"></div></div>
+    <div class="card"><div class="copyline"><h2 class="sectionTitle">8-Second Animated Video Script</h2><button onclick="copyBox('videoOutput')">Copy</button></div><div id="videoOutput" class="out"></div></div>
+    <div class="card"><div class="copyline"><h2 class="sectionTitle">Negative Prompt</h2><button onclick="copyBox('negativeOutput')">Copy</button></div><div id="negativeOutput" class="out"></div></div>
+
+    <div class="card"><div class="copyline"><h2 class="sectionTitle">Suno Jingle</h2><button onclick="copyBox('jingleOutput')">Copy</button></div><div id="jingleOutput" class="out"></div></div>
+    <div class="card"><div class="copyline"><h2 class="sectionTitle">30-Second Song</h2><button onclick="copyBox('song30Output')">Copy</button></div><div id="song30Output" class="out"></div></div>
+    <div class="card"><div class="copyline"><h2 class="sectionTitle">1-Minute Song</h2><button onclick="copyBox('song60Output')">Copy</button></div><div id="song60Output" class="out"></div></div>
+    <div class="card"><div class="copyline"><h2 class="sectionTitle">Suggested Suno Settings</h2><button onclick="copyBox('settingsOutput')">Copy</button></div><div id="settingsOutput" class="out"></div></div>
+
+    <div class="card"><div class="copyline"><h2 class="sectionTitle">Marketing Content Suite</h2><button onclick="copyBox('marketingOutput')">Copy All</button></div><div id="marketingOutput" class="out"></div></div>
+    <div class="card"><div class="copyline"><h2 class="sectionTitle">Custom GPT Instructions</h2><button onclick="copyBox('gptOutput')">Copy</button></div><div id="gptOutput" class="out"></div></div>
+    <div class="card"><div class="copyline"><h2 class="sectionTitle">Starter Questions</h2><button onclick="copyBox('starterOutput')">Copy</button></div><div id="starterOutput" class="out"></div></div>
+    <div class="card"><div class="copyline"><h2 class="sectionTitle">Knowledge</h2><button onclick="copyBox('knowledgeOutput')">Copy</button></div><div id="knowledgeOutput" class="out"></div></div>
+
+    <details class="card"><summary><h2 class="sectionTitle">Prompt History</h2></summary><div id="history" class="out"></div></details>
+  </section>
+</div>
+<div id="pageBottom"></div>
+<div class="footer">all rights reserved by glamorousgrammyglowup</div>
+
+<script>
+function setupSideScrollButtons(){
+  const upBtn = document.getElementById("up");
+  const downBtn = document.getElementById("down");
+  if(upBtn){
+    upBtn.addEventListener("click", function(e){
+      e.preventDefault();
+      window.scrollTo({top:0, behavior:"smooth"});
+    });
+  }
+  if(downBtn){
+    downBtn.addEventListener("click", function(e){
+      e.preventDefault();
+      const bottom = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight,
+        document.body.clientHeight,
+        document.documentElement.clientHeight
+      );
+      window.scrollTo({top:bottom, behavior:"smooth"});
+    });
+  }
+}
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const alpha=a=>["None",...a.filter(x=>x!=="None").sort((x,y)=>x.localeCompare(y))];
+const selectedChips=id=>[...document.querySelectorAll('#'+id+' .chip.active')].map(x=>x.dataset.v);
+const longBase={
+"Aspect Ratio":["1:1","2:3","3:2","3:4","4:3","4:5","5:4","9:16","16:9","21:9","Pinterest pin","Instagram carousel","TikTok vertical","YouTube thumbnail","wide cinematic","square poster","portrait poster","flyer size","book cover","wall art print","mobile wallpaper","desktop wallpaper","banner crop","storybook spread","magazine cover","album cover","product mockup","social ad","Etsy listing","Facebook cover","website hero","full page poster","vertical flyer","horizontal flyer","cinematic frame","ultra tall portrait","premium pin","cover art","reel cover","print-ready poster"],
+"Art Style":["hyper-realistic western editorial","glossy cowgirl glam","cinematic cowboy portrait","luxury rodeo fashion","old west wanted poster","whiskey lounge poster","steampunk western","Afro-western fantasy","cow print glam editorial","desert outlaw cinematic","high-fashion ranch editorial","gold foil saloon poster","vintage western flyer","modern western streetwear","horseback sunset realism","leather and lace editorial","silver chrome cowgirl art","sepia western film still","premium 3D glossy render","fashion magazine western","dark saloon cinematic","ranch lifestyle realism","western noir","country music cover art","luxury cowgirl doll realism","cowboy campfire realism","mountain trail cinematic","western romance editorial","rodeo queen poster","cowboy king portrait","barn glam fashion shoot","black leather outlaw style","white western bridal glam","denim and diamonds","rustic luxury realism","golden hour ranch style","wanted sign collage","western album cover","premium AI photo realism","dramatic western ad"],
+"Background":["desert ranch","barn stable","sunset prairie","horse arena","dusty saloon","luxury whiskey bar","mountain campfire","beach horseback sunset","wooden fence ranch","city rooftop western set","old town street","wanted poster wall","leather saddle room","gold foil poster backdrop","cattle pasture","grand rodeo arena","western boutique","rustic porch","cinematic canyon","misty pine forest","moonlit desert","highway gas station western","train station old west","luxury lodge","cowgirl dressing room","horse trailer scene","hay bale set","western photo studio","desert motel","rocky cliff overlook","waterfront horse trail","cowboy camp","neon saloon","black velvet studio","bronze smoke backdrop","silver chrome backdrop","cream marble western set","denim wall","cow print studio","rustic chapel"],
+"Background Elements":["horses","saddles","lasso","cow skull","gold picture frame","wanted poster paper","whiskey bottles","smoke trails","lanterns","campfire","hay bales","barn doors","rope borders","bullet accents","horseshoes","leather straps","fringe curtains","desert dust","sparkle dust","saloon doors","cactus plants","cow print fabric","wood grain","metal studs","gold filigree","playing cards","dice","poker chips","vintage microphone","vinyl record","rose bouquet","boot display","hat rack","silver jewelry","turquoise stones","velvet chair","wagon wheel","oil lamps","coffee pot","mountain fog"],
+"Camera Angle":["full body portrait","low angle power pose","wide cinematic shot","fashion editorial shot","three-quarter full body","front-facing hero shot","side profile horse pose","walking toward camera","over-the-shoulder glance","ground-level boot shot","dramatic poster angle","centered magazine cover","symmetrical full-body composition","cowgirl stance full frame","cowboy stance full frame","horseback wide shot","saloon doorway shot","barn aisle perspective","desert road long lens","soft telephoto portrait","IMAX cinematic frame","product ad frame","high fashion runway angle","lookbook pose","billboard ad crop","pin-up poster composition","vintage flyer layout","album cover portrait","close background wide subject","low sun silhouette","dynamic motion angle","full-body environmental portrait","horse beside subject","seated saddle pose","leaning fence pose","walking dust trail","standing hero pose","poster centered shot","cinematic horizon shot","luxury editorial crop"],
+"Color Palette":["black and gold","brown and bronze","white and silver","cow print black white","denim blue and tan","red and gold","cream and chocolate","turquoise and copper","rose gold and black","champagne and ivory","burnt orange and brown","rust and cream","matte black and whiskey gold","silver chrome and black","caramel and pearl","espresso and gold","navy and bronze","burgundy and brass","soft pink and tan","emerald and gold","desert sand and black","mahogany and copper","all white western","all black western","leopard and gold","cream lace and brown","charcoal and silver","sepia brown","amber sunset","warm honey gold","dusty rose western","teal and leather","sage and tan","plum and bronze","royal blue and gold","red carpet crimson","ivory pearl","copper smoke","black cherry","sunset orange"],
+"Effects":["glossy reflections","gold dust","cinematic smoke","soft bokeh","lens flare","film grain","sparkling gems","metallic foil","dust storm glow","embers","vintage paper texture","leather texture","chrome shine","glam sparkle overlay","motion blur dust","warm haze","dramatic vignette","high contrast shine","silky smoke trails","sun flare rim light","wet leather gloss","diamond twinkle","soft focus background","poster texture","painted oil finish","3D polished finish","editorial airbrush","high sharpness","velvet shadows","gold leaf flecks","silver glitter","western grit texture","aged paper edges","burnt paper border","ornate frame glow","whiskey glass reflections","horse dust trails","neon saloon glow","candlelight flicker","premium ad polish"],
+"Facial Expression":["boss stare","soft smile","serious outlaw stare","confident smirk","unbothered gaze","flirty western glance","peaceful glow","fierce runway face","calm rich energy","mysterious saloon look","bold red lip stare","soft romantic smile","cold cowboy stare","warm inviting smile","dramatic side eye","powerful direct gaze","dreamy sunset look","focused riding expression","playful wink","glam doll face","stoic hero look","gentle confidence","rich auntie energy","badass calm stare","model expression","sultry editorial gaze","joyful rodeo smile","quiet luxury face","cinematic tension look","royal western gaze","soft prayerful expression","serene ranch look","fearless glare","luxury ad confidence","high-fashion blank stare","protective cowboy look","smoky eyes stare","vintage poster face","golden hour squint","main character energy"],
+"Facial Features":["defined cheekbones","full glossy lips","soft contour","sharp jawline","button nose","almond eyes","deep-set eyes","dimples","freckles","beauty mark","smooth skin texture","glowing melanated skin","natural brows","arched brows","strong nose bridge","soft round face","oval face","heart-shaped face","square jaw","plush lips","sculpted cheeks","youthful glow","mature beauty finish","clean masculine grooming","polished complexion","dewy highlight","smoky eye detail","western sun-kissed skin","gold highlight","soft matte finish","dramatic lashes detail","natural lash line","glass skin","airbrushed editorial skin","realistic pores","warm blush","bronze contour","subtle lip liner","high glam face","cinematic skin texture"],
+"Fog":["None","campfire smoke","desert haze","soft morning mist","saloon cigar smoke","dust fog","golden haze","mountain fog","horse trail dust","stage smoke","whiskey room smoke","low ground fog","romantic mist","cinematic smoke layer","soft backlit haze","brown dust cloud","sunset haze","foggy pine forest","subtle smoke wisps","dramatic smoky veil","warm vapor glow","candle smoke","cold morning fog","prairie mist","storm haze","dry desert air","barn dust haze","neon smoke","cloudy fog curtain","soft atmospheric haze","bronze mist","silver mist","black smoke","cream haze","dusty wind swirl","embers smoke","waterfront mist","misty ridge","smoke ring effect","transparent fog"],
+"Font Style":["None","bold western slab serif","gold foil serif","vintage wanted poster font","luxury script","saloon display font","Art Deco serif","cowboy stamp font","distressed western type","engraved gold lettering","blackletter western","modern editorial serif","bold condensed sans","rope-style letters","burnt paper lettering","whiskey label font","retro rodeo font","chrome bevel font","embossed leather text","hand-painted sign type","country music poster font","cinematic title font","rustic serif","ornate Victorian serif","poster headline font","cow print block letters","gold cursive","silver chrome script","feminine glam script","masculine stamp font","festival flyer font","boutique logo font","old newspaper type","high contrast serif","bold flyer type","shadowed 3D letters","engraved brass font","luxury magazine font","decorative western caps","clean ad typography"],
+"Lighting":["golden hour","cinematic sunset glow","studio glam lighting","dramatic shadow lighting","warm saloon lighting","campfire glow","rim lighting","softbox fashion light","backlit dust glow","high contrast editorial","moonlight blue western","neon saloon light","whiskey amber light","bronze spotlight","silver studio light","cloudy soft light","sun flare light","low-key noir light","candlelit glow","horse arena lights","barn doorway beam","window light","desert noon light","soft morning glow","stormy dramatic light","twilight glow","firelight flicker","luxury ad lighting","glossy product light","IMAX sunset light","warm cinematic side light","halo backlight","gold reflector light","moody tavern light","spotlight and shadow","dreamy haze light","high fashion flash","natural ranch light","orange horizon light","velvet dark lighting"],
+"Location":["Texas ranch","Arizona desert","Montana mountains","Nashville rooftop","luxury saloon","horse stable","rodeo arena","old western town","private ranch estate","beach at sunset","pine forest campsite","canyon overlook","rustic barn","whiskey lounge","boutique western store","country concert stage","wanted poster studio","prairie field","desert highway","lake shoreline","mountain cliff","cattle ranch","wooden porch","hay barn","farm road","train station","saloon club","glam photo studio","horse trail","open pasture","cowboy camp","western chapel","desert motel","ranch fence line","black velvet set","silver chrome set","gold poster set","denim fashion set","cow print studio","fire pit campsite"],
+"Ornate Elements":["gold filigree","silver studs","turquoise stones","rhinestones","pearl details","fringe trim","leather embossing","lace panels","metal belt buckle","horseshoe charms","rope border","bullet border","vintage frame","Art Deco corners","gold chains","silver chains","cow skull accent","rose engraving","feather trim","beaded tassels","concho details","embroidered cuffs","tooled leather","gem belt","diamond earrings","cross pendant","western brooch","hat band jewels","boot rhinestones","saddle ornaments","brass buttons","chrome hardware","pearl snaps","gold leaf corners","burnt paper edges","wanted poster seals","luxury monogram","velvet ribbons","cow print trim","lace gloves"],
+"Products":["None","whiskey bottle","cowgirl hat","cowboy boots","leather handbag","saddle","perfume bottle","coffee cup","branded tumbler","wanted flyer","vinyl record","microphone","jewelry box","makeup palette","denim jacket","belt buckle","horse saddle bag","luxury watch","silver flask","gold frame","poster mockup","boot display","hat box","rope lasso","western candle","rose bouquet","country album cover","saloon menu","book stack","cigar box","tea kettle","camp coffee pot","lantern","designer bag","wallet","sunglasses","cosmetic bag","bottle and glass","western invitation","flyer mockup"],
+"Season":["None","spring","summer","fall","winter","dusty summer","golden autumn","snowy ranch","warm spring prairie","late summer sunset","harvest season","holiday western","Valentine cowgirl","New Year rodeo","birthday western","festival season","rainy spring","dry desert season","cool mountain fall","hot rodeo summer","Christmas ranch","Thanksgiving ranch","June country night","October saloon","February glam western","wildflower spring","storm season","beach summer","cattle drive season","campfire fall","rustic winter","spring rodeo","summer concert","fall fashion","winter luxe","golden harvest","late evening summer","morning spring","desert bloom","high summer"],
+"Shadow":["soft grounded shadow","dramatic long shadow","studio shadow","noir shadow","sunset silhouette shadow","horse cast shadow","barn beam shadow","hat brim shadow","cinematic contrast shadow","soft ambient shadow","hard western sun shadow","low-key deep shadow","gold rim shadow","diffused shadow","editorial fashion shadow","dusty ground shadow","saloon window shadow","lace patterned shadow","fringe shadow","cowboy hat shadow","campfire flicker shadow","moonlight shadow","velvet dark shadow","high contrast black shadow","natural ranch shadow","warm floor shadow","poster vignette shadow","dramatic side shadow","backlit silhouette","soft facial shadow","premium product shadow","western doorway shadow","smoke softened shadow","golden outline shadow","studio floor shadow","mountain sunset shadow","horseback shadow","bottle reflection shadow","glossy leather shadow","subtle grounding shadow"],
+"Text Option":["None","Wanted","Whiskey & Secrets","Cowgirl Energy","Ride or Shine","Outlaw Luxe","Rodeo Glam","Country Rich","Boots & Boss Energy","Western Royalty","Desert Doll","Saloon Secrets","Wild Hearts","Golden Hour Cowgirl","Denim & Diamonds","Black Hat Energy","Saddle Up","Luxury Ranch Life","Cowboy Code","Prairie Queen","Ranch Boss","Sunset Rider","Wanted for Slaying","Too Glam to Tame","Western Belle","Dust & Diamonds","Ride Your Own Road","Grit & Glamour","Golden Saddle","Boots First","Lasso the Dream","Outlaw Beauty","Country Club Chic","Whiskey Nights","Bronze Dreams","Silver Spurs","Cow Print Crush","Rodeo Rebel","Horse Girl Heaven","Wild West Luxe"],
+"Time of Day":["None","sunrise","golden hour","sunset","high noon","blue hour","midnight","late afternoon","early morning","twilight","dusk","dawn","night saloon","campfire night","stormy afternoon","foggy morning","neon night","moonlit midnight","late summer evening","warm noon","cloudy day","rainy night","winter morning","autumn sunset","spring sunrise","beach sunset","desert twilight","mountain sunrise","ranch sunset","western golden evening","saloon evening","after-hours lounge","concert night","rodeo night","festival afternoon","soft morning","glowing dusk","orange horizon","quiet midnight","bright studio time"],
+"Weather":["None","clear sky","dusty wind","light rain","storm clouds","warm breeze","snow flurries","foggy air","desert heat","cloudy sky","golden haze","mist","thunderstorm distance","soft drizzle","windy prairie","cool mountain air","dry desert gust","humid sunset","crisp fall air","winter chill","spring breeze","summer heatwave","rain puddles","dramatic clouds","rolling fog","smoke haze","dust storm","clear moonlight","sun flare haze","beach mist","campfire smoke weather","warm amber air","overcast ranch","cloud breaks","red sky sunset","stormy saloon night","bright dry day","misty coastline","cold pine air","soft cloudy glow"]
+};
+
+const charBase={
+"Gender":["Female","Male"],
+"Ethnicity":["African American","Black Latina","Ethiopian","East African","West African","Caribbean","Barbadian","Afro-Latina","Haitian","Jamaican","Nigerian","Ghanaian","Kenyan","Somali","Dominican","Puerto Rican","Mexican","Native American","Creole","Brazilian","South African","Moroccan","Egyptian","Indian","Filipina","Korean","Japanese","Chinese","Thai","Vietnamese","Pacific Islander","White","Italian","Irish","French","Mixed heritage","Melanated fantasy","Afro-futurist western","Southern Black","Country glam"],
+"Skin Tone":["deep ebony","dark chocolate","rich mocha","mahogany","cocoa brown","warm brown","bronze brown","caramel brown","golden brown","honey brown","deep umber","espresso","cinnamon","chestnut","sable","almond","olive","tan","porcelain","fair","medium beige","sun-kissed","reddish brown","neutral brown","cool brown","warm melanated","glowing melanated","velvet brown","soft brown","dark bronze","deep caramel","brown sugar","golden tan","rose beige","amber brown","copper brown","rich umber","black pearl","molasses","warm walnut"],
+"Eye Color":["brown","dark brown","hazel","gold flecked brown","amber","green","gray","blue","honey brown","smoky brown","black-brown","chocolate brown","caramel","olive green","steel gray","icy blue","warm hazel","light brown","deep espresso","golden amber","soft gray","aqua","jade","emerald","violet fantasy","bronze fantasy","silver fantasy","cat-eye gold","soft black","copper","topaz","mocha","rose brown","sage green","storm gray","sea blue","golden green","dark honey","warm cinnamon","glossy brown"],
+"Hair Color":["black","jet black","raven black","blue black","dark brown","chocolate brown","honey brown","caramel brown","copper brown","auburn","burgundy","platinum blonde","golden blonde","silver","salt and pepper","white","ash brown","mahogany","espresso","cinnamon","ginger","rose gold","purple black","navy black","teal black","ombre brown","black with gold highlights","black with silver streaks","black with cow print streaks","brown with blonde highlights","red copper","smoky gray","champagne blonde","warm brunette","cool brunette","black cherry","violet shine","bronze highlights","cream highlights","copper highlights"],
+"Hairstyle":["long waves","waist-length curls","silk press","high ponytail","braided ponytail","jumbo braids","knotless braids","goddess braids","braided bun","low bun","half-up curls","cowgirl hat waves","side braid","two long braids","natural afro","tapered afro","pixie cut","bob cut","curly bob","long straight hair","locs","faux locs","butterfly locs","twist out","braid crown","sleek bun","wavy wig","voluminous curls","finger waves","shag cut","short afro taper","buzz cut","fade cut","man bun","short waves","cowboy hat short hair","slick back","medium curls","shoulder-length waves","long locs"],
+"Eyebrows":["natural brows","arched brows","soft curve brows","feathered brows","bold brows","straight brows","thin vintage brows","defined brows","laminated brows","soft masculine brows","thick masculine brows","clean groomed brows","dramatic brows","high arch brows","rounded brows","sparse natural brows","sharp glam brows","full natural brows","smoky brow look","editorial brows","polished brows","no makeup brows","western sun-kissed brows","dark sculpted brows","soft brown brows","jet black brows","clean barbered brows","minimal brows","high-fashion brows","soft feminine brows","bold masculine brows","classic brows","lifted brows","cowgirl glam brows","cowboy clean brows","matte brow finish","glossy brow finish","natural textured brows","subtle brows","statement brows"],
+"Lashes":["None","dramatic lashes","wispy lashes","cat-eye lashes","soft glam lashes","thick lashes","natural lashes","doll lashes","spiky lashes","long curled lashes","western glam lashes","feathered lashes","volume lashes","flared lashes","short natural lashes","glossy lash finish","smoky lashes","bold black lashes","soft brown lashes","luxury strip lashes","subtle lashes","editorial lashes","fluttery lashes","half lashes","red carpet lashes","glam cowgirl lashes","deep noir lashes","clean mascara only","stacked lashes","siren lashes","lifted lashes","airy lashes","mega volume lashes","classic lashes","lower lash detail","winged lash style","soft doll eye lashes","full glam lashes","romantic lashes","premium lash look"],
+"Makeup":["None","soft glam makeup","smoky eye makeup","bronze glam makeup","gold glitter eyes","matte nude glam","red lip western glam","glossy nude lip","cowgirl glam beat","editorial black liner","brown smoky eye","silver chrome glam","turquoise liner","rose gold glam","clean girl glam","full glam contour","dewy glam skin","matte western glam","bold burgundy lip","soft pink lip","dark liner gloss","gold highlight","sharp wing liner","natural makeup","pearl highlight","bronzed cheek","saloon siren makeup","festival glam","luxury pageant glam","high fashion makeup","soft bridal western","dramatic doll makeup","glitter cut crease","latte makeup","espresso glam","sunset orange glam","copper glam","champagne shimmer","black cherry lip","glowing skin makeup"],
+"Nails":["None","long glossy nails","short nude nails","cow print nails","black stiletto nails","gold chrome nails","silver chrome nails","western rhinestone nails","red glossy nails","French tips","brown ombre nails","turquoise gem nails","matte black nails","rose gold nails","white pearl nails","denim blue nails","leopard nails","cream nails","burgundy nails","copper nails","almond nails","coffin nails","square nails","glitter nails","ranch glam nails","black and gold nails","silver French nails","soft pink nails","nude coffin nails","brown French tips","cowgirl charm nails","horseshoe nails","boot charm nails","sparkle nails","marble nails","champagne nails","ivory nails","black cherry nails","gold leaf nails","clean natural nails"],
+"Earrings":["None","large hoops","diamond studs","turquoise earrings","silver hoops","gold hoops","pearl hoops","western concho earrings","rhinestone drops","fringe earrings","cow skull earrings","horseshoe earrings","chain earrings","cross earrings","statement chandelier earrings","small hoops","ear cuffs","brass earrings","rose gold hoops","black gem earrings","cow print earrings","feather earrings","leather earrings","beaded earrings","pearl studs","silver studs","gold studs","dangling star earrings","moon earrings","western glam earrings","diamond hoops","chunky hoops","minimal earrings","vintage earrings","saloon earrings","Art Deco earrings","crystal earrings","rope hoop earrings","bronze earrings","luxury earrings"],
+"Hair Gems":["None","gold hair gems","silver hair gems","rhinestone hair clips","pearl pins","turquoise beads","western charm clips","cow print bow","diamond bobby pins","gold chain hairpiece","silver chain hairpiece","crystal cowgirl clips","small star clips","moon clips","hat band jewels","braid cuffs","gold braid cuffs","silver braid cuffs","bronze cuffs","pearl braid cuffs","leather hair tie","ribbon hair tie","velvet bow","fringe hair charm","gemmed ponytail cuff","rose hair clip","white feather clip","black feather clip","cowgirl tiara clip","subtle hair shine","gold dust hair","silver dust hair","rhinestone side clip","country bow","lace bow","western barrette","pearl headband","turquoise headband","crystal headband","luxury hair jewelry"],
+"Hair Edges":["None","laid baby hairs","soft swooped edges","dramatic edges","minimal edges","natural hairline","glossy edges","curled edges","side swoop edges","center swoop edges","clean edge control","soft face-framing edges","tiny curl edges","high glam edges","simple edges","smooth hairline","sculpted baby hairs","western glam edges","soft natural edges","wave edges","sleek edges","defined edges","small swoop edges","curly baby hairs","light edge detail","no visible edges","polished edges","soft curl hairline","brown gel shine edges","glossy black edges","clean hairline detail","subtle swoops","bold swoops","editorial edges","luxury edges","cowgirl glam edges","pretty laid edges","smooth finish edges","soft temple curls","face-framing baby hairs"],
+"Men Outfits":["None","denim western shirt and leather chaps","black leather cowboy jacket","classic cowboy denim look","brown suede ranch coat","embroidered western shirt","fringe leather jacket","dark outlaw coat","luxury rodeo suit","white western shirt","black western vest","cowboy tuxedo","rugged campfire outfit","bronze leather jacket","denim on denim look","country concert outfit","sheriff-inspired outfit","modern cowboy streetwear","ranch hand outfit","western biker look","long duster coat","leather waistcoat","bolo tie and vest","silver concho jacket","red embroidered shirt","tan suede jacket","black hat cowboy outfit","distressed denim outfit","whiskey lounge suit","western plaid shirt","muscular tank and cowboy hat","formal saloon suit","mountain trail outfit","horseback riding outfit","premium leather trench","brown fringe chaps","navy denim shirt","cowboy king outfit","rustic wool coat","luxury cattleman outfit","black denim western"],
+"Women Outfits":["None","black leather cowgirl outfit","silver chrome cowgirl dress","cow print corset set","white rodeo glam outfit","denim shorts and fringe vest","luxury leather bodysuit","brown leather corset outfit","rhinestone western jumpsuit","all white cowgirl suit","red carpet cowgirl look","turquoise cowgirl glam","black lace western outfit","fringe mini dress","cow print streetwear","western bridal glam","denim and diamonds outfit","saloon siren dress","bronze leather catsuit","gold western gown","cowgirl crop top set","luxury ranch jumpsuit","white fringe bodysuit","black velvet rodeo outfit","cream lace cowgirl set","silver western skirt set","rose gold western glam","leather pants and corset","horseback riding glam","country concert outfit","wanted poster glam dress","denim corset and boots","black chaps glam set","cowgirl boss suit","glossy chocolate leather","pearl western outfit","ranch queen outfit","outlaw beauty outfit","glam cowgirl jacket dress","festival cowgirl look","high fashion rodeo outfit"],
+"Men Shoes":["None","brown cowboy boots","black cowboy boots","distressed ranch boots","silver toe cowboy boots","ostrich leather boots","suede cowboy boots","work boots","black riding boots","tan western boots","embroidered cowboy boots","alligator cowboy boots","snakeskin boots","dark leather boots","dusty trail boots","polished dress boots","square toe boots","round toe boots","pointed cowboy boots","bronze western boots","white cowboy boots","red brown boots","black biker boots","luxury ranch boots","rodeo boots","mountain boots","classic leather boots","rugged camp boots","denim blue boots","gold buckle boots","silver buckle boots","cowboy spur boots","vintage boots","modern western boots","black suede boots","brown fringe boots","formal saloon boots","workman boots","premium western boots","weathered leather boots"],
+"Women Shoes":["None","white cowgirl boots","black cowgirl boots","rhinestone cowgirl boots","silver chrome boots","cow print thigh-high boots","brown western boots","red cowgirl boots","gold glitter boots","turquoise boots","denim boots","white platform boots","black platform boots","stiletto cowgirl boots","fringe boots","lace western boots","pearl western boots","rose gold boots","snakeskin boots","leopard western boots","cream boots","chocolate leather boots","high heel boots","flat riding boots","sparkle ankle boots","cow print ankle boots","silver ankle boots","black lace boots","western sneaker boots","red carpet boots","luxury rodeo boots","bridal cowgirl boots","brown fringe thigh boots","black leather thigh boots","gold buckle boots","silver buckle boots","pink western boots","ivory western boots","glossy black boots","premium glam boots"],
+"Men Accessories":["None","cowboy hat","bolo tie","leather belt","large belt buckle","silver watch","leather gloves","bandana","sheriff badge","cross necklace","gold chain","silver chain","western ring","cigar","whiskey glass","lasso","leather saddle bag","spurs","hat band","gun holster style prop","ranch gloves","vest chain","pocket watch","turquoise ring","concho belt","scarf","denim jacket accessory","leather cuffs","sunglasses","silver flask","rope bracelet","cowboy knife prop","wristwatch","black hat","brown hat","white hat","leather suspenders","country guitar","camp mug","horse reins"],
+"Women Accessories":["None","cowgirl hat","diamond necklace","turquoise necklace","large belt buckle","luxury handbag","fringe purse","western rings","silver bracelets","gold bracelets","statement earrings","rhinestone belt","pearls","charm bracelet","sunglasses","lace gloves","leather gloves","hat band jewels","silver concho belt","gold chain belt","perfume bottle","designer bag","whiskey glass prop","lasso","rose bouquet","cow print purse","boot charm","western brooch","rhinestone choker","pearl choker","turquoise rings","fringe shawl","silk scarf","country microphone","glam tumbler","nail set prop","makeup compact","hair jewel set","silver flask","fan prop"]
+};
+longBase["Clean Image / Poster Text Mode"] = ["Poster Text Allowed",
+"Clean Image Only",
+"Poster Text Allowed"];
+
+longBase["Reference Style Mode"] = ["None",
+"Luxury Western Editorial",
+"Rodeo Action Dust",
+"Double Exposure Spirit Horse",
+"Farmhouse Golden Hour",
+"Romantic Horse Bond",
+"Western Poster / Title Art"];
+
+longBase["Character 1 Gender"] = ["Auto","Female","Male"];
+longBase["Character 2 Gender"] = ["Auto","Female","Male"];
+longBase["Character 1 Styling"] = ["None",
+"female cowgirl glam styling",
+"male cowboy luxury styling",
+"black leather western styling",
+"brown vintage outlaw styling",
+"denim and diamonds styling",
+"silver rodeo styling",
+"cow print western styling",
+"formal saloon styling",
+"rugged ranch styling",
+"luxury rodeo styling",
+"matching duo western styling",
+"contrasting black and brown styling",
+"coordinated bronze western styling",
+"all white western styling",
+"dark outlaw western styling"];
+longBase["Character 2 Styling"] = ["None",
+"female cowgirl glam styling",
+"male cowboy luxury styling",
+"black leather western styling",
+"brown vintage outlaw styling",
+"denim and diamonds styling",
+"silver rodeo styling",
+"cow print western styling",
+"formal saloon styling",
+"rugged ranch styling",
+"luxury rodeo styling",
+"matching duo western styling",
+"contrasting black and brown styling",
+"coordinated bronze western styling",
+"all white western styling",
+"dark outlaw western styling"];
+longBase["Character Count"] = ["One",
+"Two characters",
+"Three characters",
+"Group scene"];
+
+longBase["Character Roles"] = ["None",
+"male and female western duo",
+"two female cowgirls",
+"two male cowboys",
+"cowboy leader with partner",
+"cowgirl leader with partner",
+"romantic western couple",
+"outlaw duo",
+"ranch partners",
+"boss duo energy"];
+
+longBase["Character Positioning"] = ["None",
+"standing side by side",
+"left character slightly forward right slightly behind",
+"right character slightly forward left slightly behind",
+"one seated one standing",
+"back to back pose",
+"walking together cinematic",
+"hero duo stance",
+"one leaning one upright",
+"close shoulder to shoulder pose"];
+
+longBase["Gender-Safe Title"] = ["None",
+"Auto Gender Title",
+"Western Boss",
+"Ranch Royalty",
+"Outlaw Luxe",
+"Prairie Power",
+"Desert Legend",
+"Golden Saddle",
+"Boots and Glory",
+"Country Royalty",
+"Western Elite",
+"Rodeo Royalty",
+"Sunset Rider",
+"Wild West Luxe",
+"Ranch Star",
+"Trailblazer",
+"Western Icon",
+"Luxury Rider",
+"Bronze Rider",
+"Silver Spurs",
+"Denim and Diamonds",
+"Whiskey Nights",
+"Ride or Shine",
+"Too Glam to Tame",
+"Main Character Energy",
+"Prairie King",
+"Prairie Queen",
+"Desert King",
+"Desert Queen",
+"Cowboy Elite",
+"Cowgirl Elite",
+"Ranch King",
+"Ranch Queen",
+"Outlaw King",
+"Outlaw Queen",
+"Western Gentleman",
+"Western Diva",
+"Saloon King",
+"Saloon Queen",
+"Rodeo King",
+"Rodeo Queen"];
+longBase["Inspiration Scene"] = ["None",
+"orange sunset horseback rider vertical",
+"giant horse head sunset double exposure",
+"young cowgirl kissing horse at fence",
+"silhouette rodeo rider with lasso",
+"bull rider dust storm action",
+"cowgirl profile sunset double exposure",
+"cowgirl horse cinematic poster collage",
+"rider silhouette dust rodeo repeat",
+"farm dog chickens golden hour",
+"empty tree swing farmhouse sunset",
+"horse herd running beach sunset",
+"wild horse spirit sky overlay",
+"ranch animal lifestyle scene",
+"cinematic bull riding poster",
+"golden pasture farmhouse scene",
+"cowboy lasso silhouette",
+"horseback beach glow",
+"storybook cowgirl horse bond",
+"western fantasy double exposure",
+"ranch sunset no character scene",
+"animal-focused farm scene",
+"dramatic rodeo dust scene",
+"horse and rider action silhouette",
+"peaceful farmyard golden hour",
+"rustic countryside swing scene",
+"giant animal spirit composition",
+"western surreal portrait overlay",
+"sunset horse herd panorama",
+"soft emotional horse portrait",
+"dusty arena bull charge",
+"cinematic ranch pet scene",
+"warm orange farmhouse background",
+"country childhood nostalgia",
+"horse closeup emotional bond",
+"premium western wall art scene",
+"Pinterest western fantasy art",
+"glowing sunset ranch poster",
+"horse silhouette beach motion",
+"cowgirl and horse storytelling scene",
+"fine art western landscape"];
+longBase["Animal Subject"] = ["None",
+"white horse",
+"brown horse",
+"black horse",
+"paint horse",
+"palomino horse",
+"horse herd",
+"giant spirit horse",
+"close-up horse portrait",
+"bull",
+"charging bull",
+"rodeo bull",
+"border collie",
+"farm dog",
+"chickens",
+"cows",
+"cattle herd",
+"goat",
+"rooster",
+"mare and foal",
+"mustang",
+"wild horses",
+"saddled horse",
+"horse with rider",
+"horse on beach",
+"horse in sunset pasture",
+"horse near wooden fence",
+"bull in dust cloud",
+"farm animals mixed group",
+"dog with chickens",
+"horse in water",
+"horse at mountain lake",
+"horse in canyon",
+"horse under orange sky",
+"cowboy horse team",
+"cowgirl horse bond",
+"horse silhouette",
+"animal only western scene",
+"ranch pet portrait",
+"dramatic animal hero shot",
+"farmyard animal scene"];
+longBase["Framing / Zoom Control"] = ["None",
+"zoomed out full scene",
+"extra wide full subject frame",
+"full horse visible head to tail",
+"full rider and horse visible",
+"full animal body visible",
+"full face and ears visible",
+"leave safe margins around subject",
+"center subject with breathing room",
+"wide lens full composition",
+"do not crop horse face",
+"do not crop animal ears",
+"do not crop horse legs",
+"do not crop rider feet",
+"do not crop tail",
+"do not crop saddle",
+"poster-safe full subject",
+"social media safe margins",
+"complete horse anatomy visible",
+"complete animal anatomy visible",
+"full landscape with full subject",
+"horse head fully inside frame",
+"bull horns fully inside frame",
+"dog face fully inside frame",
+"all animals fully inside frame",
+"wide environmental portrait",
+"full-body plus full-animal frame",
+"back up camera distance",
+"wide composition no tight crop",
+"vertical full-scene framing",
+"horizontal full-scene framing",
+"cinematic wide establishing shot",
+"full silhouette visible",
+"full lasso loop visible",
+"full cowboy hat visible",
+"full cowgirl hat visible",
+"keep subject away from edges",
+"negative space around animal",
+"full poster layout safe zone",
+"uncropped western wall art",
+"complete subject containment",
+"zoom out 25 percent"];
+longBase["Composition Type"] = ["None",
+"full-body character portrait",
+"horseback action scene",
+"animal hero portrait",
+"double exposure portrait",
+"silhouette action scene",
+"wide landscape scene",
+"poster collage composition",
+"close emotional animal bond",
+"ranch lifestyle scene",
+"farmyard golden hour scene",
+"no-human scenic composition",
+"giant spirit animal overlay",
+"vertical Pinterest wall art",
+"cinematic action freeze frame",
+"dust storm centered subject",
+"foreground animal with soft farm background",
+"rider and horse backlit silhouette",
+"large face overlay with scene inside",
+"storybook countryside frame",
+"warm nostalgic landscape",
+"dramatic low-angle rodeo shot",
+"beach horse motion scene",
+"tree swing foreground composition",
+"barn and pasture depth composition",
+"sunset sky dominant composition",
+"animal close-up foreground",
+"tiny riders beneath giant sky horse",
+"cowgirl side profile double exposure",
+"western fantasy composite art",
+"photo-real western poster",
+"soft bokeh ranch portrait",
+"centered bull charge composition",
+"lasso motion arc composition",
+"horse head profile composition",
+"childlike farm nostalgia",
+"premium wall art layout",
+"AI fantasy western scene",
+"orange glow silhouette frame",
+"golden countryside calm scene",
+"high drama western motion"];
+const categories={...longBase,...charBase};
+const femaleCats=["Lashes","Makeup","Nails","Hair Gems","Hair Edges","Women Outfits","Women Shoes","Women Accessories"];
+const maleCats=["Men Outfits","Men Shoes","Men Accessories"];
+const locks={};
+const controls=document.getElementById('controls');
+
+function buildControls(){
+ Object.entries(categories).forEach(([cat,opts])=>{
+   const isMulti=["Background Elements","Effects","Ornate Elements","Products"].includes(cat);
+   const div=document.createElement('details'); div.open=["Aspect Ratio","Gender","Art Style","Background","Location"].includes(cat);
+   div.id='box_'+cat.replaceAll(' ','_');
+   const clean=cat.replaceAll(' ','_');
+   div.innerHTML=`<summary><span>${cat}</span><button type="button" class="secondary" id="lock_${clean}" onclick="event.preventDefault();toggleLock('${cat}')">Unlock</button></summary>
+   <div class="field">
+    <label>${isMulti?'Choose one or more':'Choose one'}</label>
+    <select id="${clean}" ${isMulti?'multiple':''}>${(cat==="Gender"?opts:alpha(opts)).map(o=>`<option>${o}</option>`).join('')}</select>
+    <input class="custom" id="custom_${clean}" placeholder="Custom ${cat.toLowerCase()}..." />
+   </div>`;
+   controls.appendChild(div);
+ });
+ document.getElementById('Gender').addEventListener('change',genderLock);
+ setVal("Character Count","One");
+ genderLock();
+}
+
+function toggleLock(cat){
+ locks[cat]=!locks[cat];
+ const b=document.getElementById('lock_'+cat.replaceAll(' ','_'));
+ b.textContent=locks[cat]?'Locked':'Unlock'; b.classList.toggle('locked',locks[cat]);
+}
+function genderLock(){
+ const g=document.getElementById('Gender').value;
+ femaleCats.forEach(c=>document.getElementById('box_'+c.replaceAll(' ','_')).classList.toggle('hidden',g==="Male"));
+ maleCats.forEach(c=>document.getElementById('box_'+c.replaceAll(' ','_')).classList.toggle('hidden',g==="Female"));
+}
+function val(cat){
+ const id=cat.replaceAll(' ','_'), custom=document.getElementById('custom_'+id)?.value.trim();
+ if(custom) return custom;
+ const el=document.getElementById(id); if(!el) return "";
+ if(el.multiple) return [...el.selectedOptions].map(o=>o.value).filter(v=>v!=="None").join(", ");
+ return el.value==="None"?"":el.value;
+}
+function setVal(cat,v){
+ const id=cat.replaceAll(' ','_'), el=document.getElementById(id); if(!el) return;
+ if(el.multiple){[...el.options].forEach(o=>o.selected=(v||[]).includes(o.value));}
+ else {el.value=v;}
+}
+let presetShuffleBag=[];
+let lastPresetName='';
+const presets=[
+ ["Black Leather Cowgirl","Female","black leather cowgirl outfit","desert ranch","golden hour"],
+ ["Silver Rodeo Doll","Female","silver chrome cowgirl dress","horse arena","studio glam lighting"],
+ ["Cow Print City Rider","Female","cow print corset set","city rooftop western set","cinematic sunset glow"],
+ ["White Ranch Queen","Female","all white cowgirl suit","private ranch estate","golden hour"],
+ ["Whiskey Saloon Siren","Female","saloon siren dress","luxury whiskey bar","warm saloon lighting"],
+ ["Denim Diamond Cowgirl","Female","denim and diamonds outfit","Nashville rooftop","high fashion flash"],
+ ["Bronze Outlaw Beauty","Female","bronze leather catsuit","old western town","dramatic shadow lighting"],
+ ["Beach Horseback Glow","Female","horseback riding glam","beach at sunset","orange horizon light"],
+ ["Rhinestone Rodeo Star","Female","rhinestone western jumpsuit","rodeo arena","horse arena lights"],
+ ["Cowgirl Wanted Poster","Female","wanted poster glam dress","wanted poster studio","bronze spotlight"],
+ ["Classic Denim Cowboy","Male","classic cowboy denim look","Texas ranch","natural ranch light"],
+ ["Black Hat Cowboy","Male","black leather cowboy jacket","wooden fence ranch","cinematic sunset glow"],
+ ["Brown Suede Rancher","Male","brown suede ranch coat","Montana mountains","golden hour"],
+ ["Whiskey Lounge Cowboy","Male","whiskey lounge suit","luxury saloon","warm saloon lighting"],
+ ["Outlaw Duster","Male","long duster coat","old western town","dramatic shadow lighting"],
+ ["Campfire Cowboy","Male","rugged campfire outfit","mountain campfire","campfire glow"],
+ ["Rodeo King","Male","luxury rodeo suit","grand rodeo arena","spotlight and shadow"],
+ ["Denim Trail Rider","Male","denim western shirt and leather chaps","horse trail","soft morning glow"],
+ ["Modern Cowboy Streetwear","Male","modern cowboy streetwear","city rooftop western set","neon saloon light"],
+ ["Silver Concho Cowboy","Male","silver concho jacket","black velvet set","silver studio light"],
+ ["Afro-Western Power Duo","Female","luxury leather bodysuit","cinematic canyon","rim lighting"],
+ ["Golden Saddle Editorial","Female","gold western gown","gold poster set","luxury ad lighting"],
+ ["Cow Print Crush","Female","cow print streetwear","cow print studio","softbox fashion light"],
+ ["Mountain Smoke Rider","Male","mountain trail outfit","rocky cliff overlook","twilight glow"],
+ ["Desert Poster Luxe","Female","brown leather corset outfit","desert motel","backlit dust glow"],
+ ["Sunset Horseback Rider","Female","horseback riding glam","sunset prairie","orange horizon light"],
+ ["Spirit Horse Sky","Female","denim and diamonds outfit","beach at sunset","cinematic sunset glow"],
+ ["Horse Kiss Storybook","Female","denim shorts and fringe vest","wooden fence ranch","soft morning glow"],
+ ["Dust Lasso Silhouette","Male","fringe leather jacket","rodeo arena","backlit dust glow"],
+ ["Bull Rider Explosion","Male","luxury rodeo suit","grand rodeo arena","dramatic shadow lighting"],
+ ["Cowgirl Double Exposure","Female","brown leather corset outfit","mountain cliff","golden hour"],
+ ["Farm Dog Golden Hour","Female","country concert outfit","golden pasture farmhouse scene","golden hour"],
+ ["Tree Swing Ranch Sunset","Female","western bridal glam","golden pasture farmhouse scene","orange horizon light"],
+ ["Wanted Outlaw King","Male","long duster coat","wanted poster studio","bronze spotlight"],
+ ["Wanted Cowgirl Queen","Female","wanted poster glam dress","wanted poster studio","gold reflector light"],
+ ["Sepia Saloon Wanted","Male","formal saloon suit","old western town","warm saloon lighting"],
+ ["Rhinestone Wanted Belle","Female","rhinestone western jumpsuit","wanted poster wall","luxury ad lighting"],
+ ["Dust Bowl Wanted Rider","Male","dark outlaw coat","desert highway","backlit dust glow"],
+ ["Cow Print Wanted Diva","Female","cow print corset set","cow print studio","softbox fashion light"],
+ ["Golden Bounty Cowboy","Male","black hat cowboy outfit","gold poster set","dramatic shadow lighting"],
+ ["Bronze Bounty Cowgirl","Female","bronze leather catsuit","bronze smoke backdrop","rim lighting"],
+ ["Whiskey Poster Gentleman","Male","whiskey lounge suit","luxury whiskey bar","moody tavern light"],
+ ["Whiskey Poster Diva","Female","saloon siren dress","luxury whiskey bar","warm saloon lighting"],
+ ["Spirit Horse Wanted Art","Female","denim and diamonds outfit","wanted poster studio","cinematic sunset glow"],
+ ["Double Exposure Cowboy Legend","Male","brown suede ranch coat","mountain cliff","golden hour"],
+ ["Double Exposure Cowgirl Legend","Female","brown leather corset outfit","cinematic canyon","golden hour"],
+ ["Farmhouse Ranch Partners","Female","luxury ranch jumpsuit","golden pasture farmhouse scene","soft morning glow"],
+ ["Golden Dog Ranch Scene","Male","classic cowboy denim look","golden pasture farmhouse scene","golden hour"],
+ ["Beach Herd Sunset","Female","horseback riding glam","beach at sunset","orange horizon light"],
+ ["Bull Dust Rodeo Poster","Male","luxury rodeo suit","rodeo arena","spotlight and shadow"],
+ ["Lasso Dust Duo","Male","fringe leather jacket","grand rodeo arena","backlit dust glow"],
+ ["Silver Spurs Poster","Male","silver concho jacket","silver chrome backdrop","silver studio light"],
+ ["Pearl Ranch Poster","Female","pearl western outfit","cream marble western set","softbox fashion light"],
+ ["Black Velvet Outlaw","Male","black denim western","black velvet studio","low-key noir light"],
+ ["All White Cowgirl Poster","Female","all white cowgirl suit","white western bridal glam","high fashion flash"],
+ ["Cowboy Campfire Legend","Male","rugged campfire outfit","cowboy camp","campfire glow"],
+ ["Romantic Horse Bond Cowgirl","Female","denim corset and boots","wooden fence ranch","soft morning glow"],
+ ["Romantic Horse Bond Cowboy","Male","denim western shirt and leather chaps","horse stable","soft morning glow"],
+ ["Prairie Power Duo","Female","glossy chocolate leather","sunset prairie","golden hour"],
+ ["Outlaw Luxe Duo","Male","premium leather trench","old western town","dramatic shadow lighting"],
+ ["Chrome Rodeo Doll","Female","silver western skirt set","silver chrome backdrop","silver studio light"],
+ ["Golden Saddle Wall Art","Female","gold western gown","gold poster set","luxury ad lighting"]
+];
+function shuffleArray(arr){
+ for(let i=arr.length-1;i>0;i--){
+   const j=Math.floor(Math.random()*(i+1));
+   [arr[i],arr[j]]=[arr[j],arr[i]];
+ }
+ return arr;
+}
+function getNextPreset(){
+ if(!presetShuffleBag.length){
+   presetShuffleBag = shuffleArray([...presets]);
+ }
+ let next = presetShuffleBag.shift();
+ if(next && next[0] === lastPresetName && presetShuffleBag.length){
+   presetShuffleBag.push(next);
+   next = presetShuffleBag.shift();
+ }
+ if(next) lastPresetName = next[0];
+ return next;
+}
+const presetProfiles = {"Black Leather Cowgirl": {"ref": "Luxury Western Editorial", "style": "glossy cowgirl glam", "inspo": "premium western wall art scene", "comp": "full-body character portrait", "title": "Western Boss", "palette": "black and gold", "effects": ["glossy reflections", "gold dust"], "shadow": "soft grounded shadow", "animal": "saddled horse"}, "Silver Rodeo Doll": {"ref": "Western Poster / Title Art", "style": "silver chrome cowgirl art", "inspo": "glowing sunset ranch poster", "comp": "photo-real western poster", "title": "Silver Spurs", "palette": "silver chrome and black", "effects": ["chrome shine", "sparkling gems"], "shadow": "studio shadow", "animal": "horse with rider"}, "Cow Print City Rider": {"ref": "Luxury Western Editorial", "style": "cow print glam editorial", "inspo": "Pinterest western fantasy art", "comp": "full-body character portrait", "title": "Cow Print Crush", "palette": "cow print black white", "effects": ["glossy reflections", "cow print trim"], "shadow": "premium product shadow", "animal": "paint horse"}, "White Ranch Queen": {"ref": "Luxury Western Editorial", "style": "white western bridal glam", "inspo": "glowing sunset ranch poster", "comp": "full-body character portrait", "title": "Ranch Queen", "palette": "champagne and ivory", "effects": ["soft bokeh", "diamond twinkle"], "shadow": "soft ambient shadow", "animal": "white horse"}, "Whiskey Saloon Siren": {"ref": "Western Poster / Title Art", "style": "whiskey lounge poster", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Whiskey Nights", "palette": "matte black and whiskey gold", "effects": ["whiskey glass reflections", "cinematic smoke"], "shadow": "saloon window shadow", "animal": "None"}, "Denim Diamond Cowgirl": {"ref": "Luxury Western Editorial", "style": "denim and diamonds", "inspo": "cowgirl horse cinematic poster collage", "comp": "poster collage composition", "title": "Denim and Diamonds", "palette": "denim blue and tan", "effects": ["diamond twinkle", "gold dust"], "shadow": "editorial fashion shadow", "animal": "brown horse"}, "Bronze Outlaw Beauty": {"ref": "Rodeo Action Dust", "style": "desert outlaw cinematic", "inspo": "dramatic rodeo dust scene", "comp": "dust storm centered subject", "title": "Outlaw Luxe", "palette": "brown and bronze", "effects": ["dust storm glow", "warm haze"], "shadow": "dramatic long shadow", "animal": "black horse"}, "Beach Horseback Glow": {"ref": "Luxury Western Editorial", "style": "horseback sunset realism", "inspo": "horseback beach glow", "comp": "beach horse motion scene", "title": "Sunset Rider", "palette": "amber sunset", "effects": ["sun flare rim light", "horse dust trails"], "shadow": "sunset silhouette shadow", "animal": "horse on beach"}, "Rhinestone Rodeo Star": {"ref": "Western Poster / Title Art", "style": "rodeo queen poster", "inspo": "cinematic bull riding poster", "comp": "photo-real western poster", "title": "Rodeo Queen", "palette": "red and gold", "effects": ["sparkling gems", "metallic foil"], "shadow": "spotlight and shadow", "animal": "rodeo bull"}, "Cowgirl Wanted Poster": {"ref": "Western Poster / Title Art", "style": "old west wanted poster", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Wanted", "palette": "sepia brown", "effects": ["vintage paper texture", "aged paper edges"], "shadow": "poster vignette shadow", "animal": "None"}, "Classic Denim Cowboy": {"ref": "Luxury Western Editorial", "style": "cinematic cowboy portrait", "inspo": "glowing sunset ranch poster", "comp": "full-body character portrait", "title": "Cowboy Elite", "palette": "denim blue and tan", "effects": ["film grain", "dust glow"], "shadow": "natural ranch shadow", "animal": "brown horse"}, "Black Hat Cowboy": {"ref": "Luxury Western Editorial", "style": "western noir", "inspo": "western fantasy double exposure", "comp": "full-body character portrait", "title": "Black Hat Energy", "palette": "all black western", "effects": ["dramatic vignette", "cinematic smoke"], "shadow": "hat brim shadow", "animal": "black horse"}, "Brown Suede Rancher": {"ref": "Farmhouse Golden Hour", "style": "ranch lifestyle realism", "inspo": "golden pasture farmhouse scene", "comp": "ranch lifestyle scene", "title": "Ranch Star", "palette": "cream and chocolate", "effects": ["soft bokeh", "warm haze"], "shadow": "soft grounded shadow", "animal": "cattle herd"}, "Whiskey Lounge Cowboy": {"ref": "Western Poster / Title Art", "style": "whiskey lounge poster", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Whiskey Nights", "palette": "matte black and whiskey gold", "effects": ["whiskey glass reflections", "cigar smoke"], "shadow": "low-key deep shadow", "animal": "None"}, "Outlaw Duster": {"ref": "Rodeo Action Dust", "style": "desert outlaw cinematic", "inspo": "dramatic rodeo dust scene", "comp": "dust storm centered subject", "title": "Outlaw King", "palette": "black and gold", "effects": ["dust storm glow", "dramatic vignette"], "shadow": "dramatic side shadow", "animal": "charging bull"}, "Campfire Cowboy": {"ref": "Luxury Western Editorial", "style": "cowboy campfire realism", "inspo": "western fantasy double exposure", "comp": "wide landscape scene", "title": "Cowboy Code", "palette": "burnt orange and brown", "effects": ["embers", "campfire smoke"], "shadow": "campfire flicker shadow", "animal": "saddled horse"}, "Rodeo King": {"ref": "Rodeo Action Dust", "style": "luxury rodeo fashion", "inspo": "bull rider dust storm action", "comp": "cinematic action freeze frame", "title": "Rodeo King", "palette": "black and gold", "effects": ["motion blur dust", "flying dirt"], "shadow": "hard western sun shadow", "animal": "rodeo bull"}, "Denim Trail Rider": {"ref": "Luxury Western Editorial", "style": "horseback sunset realism", "inspo": "orange sunset horseback rider vertical", "comp": "horseback action scene", "title": "Trailblazer", "palette": "denim blue and tan", "effects": ["horse dust trails", "sun flare rim light"], "shadow": "horseback shadow", "animal": "horse with rider"}, "Modern Cowboy Streetwear": {"ref": "Luxury Western Editorial", "style": "modern western streetwear", "inspo": "glowing sunset ranch poster", "comp": "full-body character portrait", "title": "Western Elite", "palette": "royal blue and gold", "effects": ["neon saloon glow", "glossy reflections"], "shadow": "premium product shadow", "animal": "None"}, "Silver Concho Cowboy": {"ref": "Western Poster / Title Art", "style": "silver chrome cowgirl art", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Silver Spurs", "palette": "silver chrome and black", "effects": ["chrome shine", "metallic foil"], "shadow": "studio shadow", "animal": "black horse"}, "Afro-Western Power Duo": {"ref": "Luxury Western Editorial", "style": "Afro-western fantasy", "inspo": "cowgirl horse cinematic poster collage", "comp": "full-body character portrait", "title": "Western Boss", "palette": "emerald and gold", "effects": ["gold dust", "glam sparkle overlay"], "shadow": "gold rim shadow", "animal": "giant spirit horse"}, "Golden Saddle Editorial": {"ref": "Luxury Western Editorial", "style": "high-fashion ranch editorial", "inspo": "glowing sunset ranch poster", "comp": "premium wall art layout", "title": "Golden Saddle", "palette": "black and gold", "effects": ["gold leaf flecks", "luxury ad lighting"], "shadow": "premium product shadow", "animal": "white horse"}, "Cow Print Crush": {"ref": "Luxury Western Editorial", "style": "cow print glam editorial", "inspo": "Pinterest western fantasy art", "comp": "vertical Pinterest wall art", "title": "Cow Print Crush", "palette": "cow print black white", "effects": ["glossy reflections", "sparkling gems"], "shadow": "studio shadow", "animal": "paint horse"}, "Mountain Smoke Rider": {"ref": "Double Exposure Spirit Horse", "style": "mountain trail cinematic", "inspo": "western fantasy double exposure", "comp": "giant spirit animal overlay", "title": "Desert Legend", "palette": "charcoal and silver", "effects": ["mountain fog", "cinematic smoke"], "shadow": "mountain sunset shadow", "animal": "giant spirit horse"}, "Desert Poster Luxe": {"ref": "Western Poster / Title Art", "style": "vintage western flyer", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Desert Legend", "palette": "desert sand and black", "effects": ["aged paper edges", "gold leaf flecks"], "shadow": "poster vignette shadow", "animal": "None"}, "Wanted Outlaw King": {"ref": "Western Poster / Title Art", "style": "old west wanted poster", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Outlaw King", "palette": "sepia brown", "effects": ["vintage paper texture", "burnt paper border"], "shadow": "poster vignette shadow", "animal": "None"}, "Wanted Cowgirl Queen": {"ref": "Western Poster / Title Art", "style": "old west wanted poster", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Outlaw Queen", "palette": "sepia brown", "effects": ["vintage paper texture", "gold leaf flecks"], "shadow": "poster vignette shadow", "animal": "None"}, "Sepia Saloon Wanted": {"ref": "Western Poster / Title Art", "style": "vintage western flyer", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Saloon King", "palette": "sepia brown", "effects": ["aged paper edges", "leather texture"], "shadow": "saloon window shadow", "animal": "None"}, "Rhinestone Wanted Belle": {"ref": "Western Poster / Title Art", "style": "rodeo queen poster", "inspo": "Pinterest western fantasy art", "comp": "photo-real western poster", "title": "Rodeo Queen", "palette": "rose gold and black", "effects": ["sparkling gems", "metallic foil"], "shadow": "editorial fashion shadow", "animal": "white horse"}, "Dust Bowl Wanted Rider": {"ref": "Rodeo Action Dust", "style": "desert outlaw cinematic", "inspo": "dramatic rodeo dust scene", "comp": "cinematic action freeze frame", "title": "Wanted", "palette": "burnt orange and brown", "effects": ["dust storm glow", "motion blur dust"], "shadow": "dramatic long shadow", "animal": "horse with rider"}, "Cow Print Wanted Diva": {"ref": "Western Poster / Title Art", "style": "cow print glam editorial", "inspo": "glowing sunset ranch poster", "comp": "photo-real western poster", "title": "Western Diva", "palette": "cow print black white", "effects": ["metallic foil", "glossy reflections"], "shadow": "studio shadow", "animal": "paint horse"}, "Golden Bounty Cowboy": {"ref": "Western Poster / Title Art", "style": "gold foil saloon poster", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Ranch King", "palette": "black and gold", "effects": ["gold leaf flecks", "metallic foil"], "shadow": "poster vignette shadow", "animal": "black horse"}, "Bronze Bounty Cowgirl": {"ref": "Western Poster / Title Art", "style": "bronze leather catsuit", "inspo": "glowing sunset ranch poster", "comp": "photo-real western poster", "title": "Ranch Queen", "palette": "brown and bronze", "effects": ["bronze mist", "glossy reflections"], "shadow": "golden outline shadow", "animal": "brown horse"}, "Whiskey Poster Gentleman": {"ref": "Western Poster / Title Art", "style": "whiskey lounge poster", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Western Gentleman", "palette": "matte black and whiskey gold", "effects": ["whiskey glass reflections", "cinematic smoke"], "shadow": "low-key deep shadow", "animal": "None"}, "Whiskey Poster Diva": {"ref": "Western Poster / Title Art", "style": "whiskey lounge poster", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Western Diva", "palette": "black cherry", "effects": ["whiskey glass reflections", "glam sparkle overlay"], "shadow": "saloon window shadow", "animal": "None"}, "Spirit Horse Wanted Art": {"ref": "Double Exposure Spirit Horse", "style": "Afro-western fantasy", "inspo": "giant horse head sunset double exposure", "comp": "giant spirit animal overlay", "title": "Wild West Luxe", "palette": "amber sunset", "effects": ["soft bokeh", "sun flare rim light"], "shadow": "sunset silhouette shadow", "animal": "giant spirit horse"}, "Double Exposure Cowboy Legend": {"ref": "Double Exposure Spirit Horse", "style": "western fantasy double exposure", "inspo": "western fantasy double exposure", "comp": "large face overlay with scene inside", "title": "Desert King", "palette": "amber sunset", "effects": ["soft focus background", "warm haze"], "shadow": "golden outline shadow", "animal": "giant spirit horse"}, "Double Exposure Cowgirl Legend": {"ref": "Double Exposure Spirit Horse", "style": "western fantasy double exposure", "inspo": "cowgirl profile sunset double exposure", "comp": "large face overlay with scene inside", "title": "Desert Queen", "palette": "amber sunset", "effects": ["soft focus background", "gold dust"], "shadow": "golden outline shadow", "animal": "giant spirit horse"}, "Farmhouse Ranch Partners": {"ref": "Farmhouse Golden Hour", "style": "ranch lifestyle realism", "inspo": "farm dog chickens golden hour", "comp": "farmyard golden hour scene", "title": "Ranch Royalty", "palette": "warm honey gold", "effects": ["soft bokeh", "warm haze"], "shadow": "natural ranch shadow", "animal": "dog with chickens"}, "Golden Dog Ranch Scene": {"ref": "Farmhouse Golden Hour", "style": "ranch lifestyle realism", "inspo": "farm dog chickens golden hour", "comp": "animal hero portrait", "title": "Ranch Star", "palette": "warm honey gold", "effects": ["soft bokeh", "sun flare rim light"], "shadow": "soft grounded shadow", "animal": "farm dog"}, "Beach Herd Sunset": {"ref": "Luxury Western Editorial", "style": "horseback sunset realism", "inspo": "horse herd running beach sunset", "comp": "sunset horse herd panorama", "title": "Sunset Rider", "palette": "amber sunset", "effects": ["horse dust trails", "sun flare rim light"], "shadow": "sunset silhouette shadow", "animal": "horse herd"}, "Bull Dust Rodeo Poster": {"ref": "Rodeo Action Dust", "style": "cinematic bull riding poster", "inspo": "bull rider dust storm action", "comp": "centered bull charge composition", "title": "Rodeo Royalty", "palette": "burnt orange and brown", "effects": ["dust storm glow", "flying dirt"], "shadow": "dramatic side shadow", "animal": "rodeo bull"}, "Lasso Dust Duo": {"ref": "Rodeo Action Dust", "style": "luxury rodeo fashion", "inspo": "silhouette rodeo rider with lasso", "comp": "lasso motion arc composition", "title": "Rodeo Royalty", "palette": "amber sunset", "effects": ["motion blur dust", "dust storm glow"], "shadow": "sunset silhouette shadow", "animal": "horse with rider"}, "Silver Spurs Poster": {"ref": "Western Poster / Title Art", "style": "silver chrome cowgirl art", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Silver Spurs", "palette": "white and silver", "effects": ["chrome shine", "metallic foil"], "shadow": "studio shadow", "animal": "black horse"}, "Pearl Ranch Poster": {"ref": "Western Poster / Title Art", "style": "high-fashion ranch editorial", "inspo": "glowing sunset ranch poster", "comp": "photo-real western poster", "title": "Ranch Royalty", "palette": "champagne and ivory", "effects": ["pearl details", "soft bokeh"], "shadow": "soft ambient shadow", "animal": "white horse"}, "Black Velvet Outlaw": {"ref": "Luxury Western Editorial", "style": "western noir", "inspo": "western fantasy double exposure", "comp": "full-body character portrait", "title": "Outlaw Luxe", "palette": "all black western", "effects": ["velvet shadows", "cinematic smoke"], "shadow": "velvet dark shadow", "animal": "black horse"}, "All White Cowgirl Poster": {"ref": "Western Poster / Title Art", "style": "white western bridal glam", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Cowgirl Elite", "palette": "all white western", "effects": ["diamond twinkle", "soft bokeh"], "shadow": "soft ambient shadow", "animal": "white horse"}, "Cowboy Campfire Legend": {"ref": "Luxury Western Editorial", "style": "cowboy campfire realism", "inspo": "western fantasy double exposure", "comp": "wide landscape scene", "title": "Cowboy Code", "palette": "burnt orange and brown", "effects": ["embers", "campfire smoke"], "shadow": "campfire flicker shadow", "animal": "saddled horse"}, "Romantic Horse Bond Cowgirl": {"ref": "Romantic Horse Bond", "style": "western romance editorial", "inspo": "young cowgirl kissing horse at fence", "comp": "close emotional animal bond", "title": "Wild Hearts", "palette": "cream and chocolate", "effects": ["soft bokeh", "warm haze"], "shadow": "soft facial shadow", "animal": "close-up horse portrait"}, "Romantic Horse Bond Cowboy": {"ref": "Romantic Horse Bond", "style": "western romance editorial", "inspo": "soft emotional horse portrait", "comp": "close emotional animal bond", "title": "Wild Hearts", "palette": "cream and chocolate", "effects": ["soft bokeh", "warm haze"], "shadow": "soft facial shadow", "animal": "brown horse"}, "Prairie Power Duo": {"ref": "Luxury Western Editorial", "style": "high-fashion ranch editorial", "inspo": "cowgirl horse cinematic poster collage", "comp": "full-body character portrait", "title": "Prairie Power", "palette": "black and gold", "effects": ["gold dust", "glossy reflections"], "shadow": "soft grounded shadow", "animal": "horse with rider"}, "Outlaw Luxe Duo": {"ref": "Rodeo Action Dust", "style": "desert outlaw cinematic", "inspo": "dramatic rodeo dust scene", "comp": "dust storm centered subject", "title": "Outlaw Luxe", "palette": "black and gold", "effects": ["dust storm glow", "dramatic vignette"], "shadow": "dramatic side shadow", "animal": "charging bull"}, "Chrome Rodeo Doll": {"ref": "Western Poster / Title Art", "style": "silver chrome cowgirl art", "inspo": "premium western wall art scene", "comp": "photo-real western poster", "title": "Rodeo Queen", "palette": "silver chrome and black", "effects": ["chrome shine", "sparkling gems"], "shadow": "studio shadow", "animal": "white horse"}, "Golden Saddle Wall Art": {"ref": "Western Poster / Title Art", "style": "gold foil saloon poster", "inspo": "glowing sunset ranch poster", "comp": "premium wall art layout", "title": "Golden Saddle", "palette": "black and gold", "effects": ["gold leaf flecks", "metallic foil"], "shadow": "poster vignette shadow", "animal": "saddled horse"}};
+function clearSelectionsOnly(){
+ document.querySelectorAll('select').forEach(s=>{[...s.options].forEach(o=>o.selected=false);s.selectedIndex=0});
+ document.querySelectorAll('input.custom').forEach(i=>i.value='');
+}
+
+function applyPresetByData(p){
+ if(!p) return;
+ clearSelectionsOnly();
+ const profile = presetProfiles[p[0]] || {};
+ setVal("Gender",p[1]);
+ genderLock();
+
+ const outfit=p[1]==="Male"?"Men Outfits":"Women Outfits";
+ setVal(outfit,p[2]);
+ setVal("Location",p[3]);
+ setVal("Lighting",p[4]);
+
+ setVal("Aspect Ratio","9:16");
+ setVal("Camera Angle", profile.camera || "full body portrait");
+ setVal("Reference Style Mode", profile.ref || "Luxury Western Editorial");
+ setVal("Art Style", profile.style || "luxury western cinematic scene");
+ setVal("Inspiration Scene", profile.inspo || "premium western wall art scene");
+ setVal("Composition Type", profile.comp || "full-body character portrait");
+ setVal("Gender-Safe Title", profile.title || "Auto Gender Title");
+ setVal("Color Palette", profile.palette || "black and gold");
+ setVal("Shadow", profile.shadow || "soft grounded shadow");
+ setVal("Animal Subject", profile.animal || "None");
+
+ if(profile.effects){
+   const el=document.getElementById("Effects");
+   if(el){
+     [...el.options].forEach(o=>o.selected=false);
+     profile.effects.forEach(v=>{
+       const opt=[...el.options].find(o=>o.value===v);
+       if(opt) opt.selected=true;
+     });
+   }
+ }
+
+ setVal("Character Count","One");
+ setVal("Character Roles","None");
+ setVal("Character Positioning","None");
+ generateAll();
+}
+function randomPreset(){
+ applyPresetByData(getNextPreset());
+}
+function buildPresets(){
+ const box=document.getElementById('presetButtons');
+ presets.forEach(p=>{
+   const b=document.createElement('button'); b.className='secondary'; b.textContent=p[0];
+   b.onclick=()=>applyPresetByData(p)
+   box.appendChild(b);
+ });
+}
+function randomizeAll(){
+ const gender = locks["Gender"] ? val("Gender") : pick(["Female","Male"]);
+ setVal("Gender", gender);
+ genderLock();
+ Object.keys(categories).forEach(cat=>{
+   if(locks[cat] || cat === "Gender") return;
+   if(gender === "Male" && femaleCats.includes(cat)) return;
+   if(gender === "Female" && maleCats.includes(cat)) return;
+   const el=document.getElementById(cat.replaceAll(' ','_'));
+   if(!el || el.closest('details')?.classList.contains('hidden')) return;
+   const opts=[...el.options].map(o=>o.value).filter(v=>v && v!=="None" && v!=="Auto");
+   if(!opts.length) return;
+   if(el.multiple){
+     [...el.options].forEach(o=>o.selected=false);
+     const v=pick(opts);
+     const opt=[...el.options].find(o=>o.value===v);
+     if(opt) opt.selected=true;
+   } else {
+     el.value=pick(opts);
+   }
+ });
+ if(!locks["Character Count"]) setVal("Character Count","One");
+ if(!locks["Character Roles"]) setVal("Character Roles","None");
+ if(!locks["Character Positioning"]) setVal("Character Positioning","None");
+ if(!locks["Character 1 Gender"]) setVal("Character 1 Gender","Auto");
+ if(!locks["Character 2 Gender"]) setVal("Character 2 Gender","Auto");
+ if(!locks["Character 1 Styling"]) setVal("Character 1 Styling","None");
+ if(!locks["Character 2 Styling"]) setVal("Character 2 Styling","None");
+ generateAll();
+}
+
+function zoomOutMode(){
+ setVal("Framing / Zoom Control","zoomed out full scene");
+ setVal("Camera Angle","wide cinematic shot");
+ setVal("Composition Type","full rider and horse visible");
+ const animal=document.getElementById("Animal_Subject");
+ if(animal && (!animal.value || animal.value==="None")) animal.value="horse with rider";
+ generateAll();
+}
+function clearAll(){
+ document.querySelectorAll('select').forEach(s=>{[...s.options].forEach(o=>o.selected=false);s.selectedIndex=0});
+ document.querySelectorAll('input.custom').forEach(i=>i.value='');
+ ["mainOutput","varOutput","videoOutput","negativeOutput","jingleOutput","song30Output","song60Output","settingsOutput","marketingOutput","gptOutput","starterOutput","knowledgeOutput"].forEach(id=>document.getElementById(id).textContent='');
+ genderLock();
+}
+function promptCore(){
+ const g=val("Gender"), outfit=g==="Male"?val("Men Outfits"):val("Women Outfits"), shoes=g==="Male"?val("Men Shoes"):val("Women Shoes"), acc=g==="Male"?val("Men Accessories"):val("Women Accessories");
+ return {g,outfit,shoes,acc,textMode:val("Clean Image / Poster Text Mode"),refMode:val("Reference Style Mode"),c1Gender:val("Character 1 Gender"),c2Gender:val("Character 2 Gender"),c1Style:val("Character 1 Styling"),c2Style:val("Character 2 Styling"),charCount:val("Character Count"),roles:val("Character Roles"),positioning:val("Character Positioning"),safeTitle:val("Gender-Safe Title"),inspiration:val("Inspiration Scene"),animal:val("Animal Subject"),composition:val("Composition Type"),framing:val("Framing / Zoom Control"),ratio:val("Aspect Ratio"),eth:val("Ethnicity"),skin:val("Skin Tone"),eyes:val("Eye Color"),hairColor:val("Hair Color"),hair:val("Hairstyle"),brows:val("Eyebrows"),lashes:g==="Female"?val("Lashes"):"",makeup:g==="Female"?val("Makeup"):"",nails:g==="Female"?val("Nails"):"",hairGems:g==="Female"?val("Hair Gems"):"",edges:g==="Female"?val("Hair Edges"):"",style:val("Art Style"),bg:val("Background"),bge:val("Background Elements"),camera:val("Camera Angle"),palette:val("Color Palette"),effects:val("Effects"),face:val("Facial Expression"),features:val("Facial Features"),fog:val("Fog"),font:val("Font Style"),light:val("Lighting"),loc:val("Location"),ornate:val("Ornate Elements"),products:val("Products"),season:val("Season"),shadow:val("Shadow"),text:val("Text Option"),time:val("Time of Day"),weather:val("Weather")};
+}
+function referenceStyleModeText(mode){
+ if(!mode || mode==="None") return "";
+ const map={
+  "Luxury Western Editorial":"Reference style mode: luxury western editorial with polished fashion styling, glossy premium realism, ornate leather, metallic details, cinematic ranch atmosphere, high-end magazine finish.",
+  "Rodeo Action Dust":"Reference style mode: rodeo action dust with dynamic motion, lasso arcs, charging animals, flying dirt, dramatic backlight, dust clouds, and full subject visibility.",
+  "Double Exposure Spirit Horse":"Reference style mode: double exposure spirit horse with giant horse silhouette, sunset landscape overlays, glowing sky, mountains, running horses, dreamy fantasy realism, and clean blended edges.",
+  "Farmhouse Golden Hour":"Reference style mode: farmhouse golden hour with warm pasture light, barn background, peaceful ranch animals, soft bokeh, nostalgic countryside calm, and cozy sunset glow.",
+  "Romantic Horse Bond":"Reference style mode: romantic horse bond with emotional cowgirl/cowboy and horse connection, close gentle pose, soft natural light, fence or stable setting, warm cinematic tenderness.",
+  "Western Poster / Title Art":"Reference style mode: western poster title art with readable gender-safe western typography, ornate title placement, polished poster composition, luxury old-west graphic styling, and clean balanced layout."
+ };
+ return map[mode] || "";
+}
+function resolveCharacterGenders(p){
+ let c1 = p.c1Gender && p.c1Gender !== "Auto" ? p.c1Gender : p.g;
+ let c2 = p.c2Gender && p.c2Gender !== "Auto" ? p.c2Gender : (p.roles && p.roles.includes("male and female") ? (c1 === "Male" ? "Female" : "Male") : p.g);
+ if(p.roles && p.roles.includes("two female")){ c1="Female"; c2="Female"; }
+ if(p.roles && p.roles.includes("two male")){ c1="Male"; c2="Male"; }
+ return {c1,c2};
+}
+function genderRulesText(label, gender){
+ return gender === "Male"
+ ? `${label}: male cowboy character with masculine western styling only, clean masculine grooming, no lashes, no makeup, no nails, no hair gems, no hair edges, no feminine accessories, no women-only outfits, no women-only shoes.`
+ : `${label}: female cowgirl character with feminine western styling, glam-appropriate lashes, makeup, nails, hair details, jewelry, and women-only fashion allowed.`;
+}
+function getGenderSafeTitle(p){
+ const chosen = p.safeTitle || "Auto Gender Title";
+ const maleMap = {"Prairie Queen":"Prairie King", "Desert Queen":"Desert King", "Cowgirl Elite":"Cowboy Elite", "Ranch Queen":"Ranch King", "Outlaw Queen":"Outlaw King", "Western Diva":"Western Gentleman", "Saloon Queen":"Saloon King", "Rodeo Queen":"Rodeo King"};
+ const femaleMap = {"Prairie King":"Prairie Queen", "Desert King":"Desert Queen", "Cowboy Elite":"Cowgirl Elite", "Ranch King":"Ranch Queen", "Outlaw King":"Outlaw Queen", "Western Gentleman":"Western Diva", "Saloon King":"Saloon Queen", "Rodeo King":"Rodeo Queen"};
+ if(chosen === "None") return "";
+ if(chosen === "Auto Gender Title") return p.g === "Male" ? "Prairie King" : "Prairie Queen";
+ if(p.g === "Male" && maleMap[chosen]) return maleMap[chosen];
+ if(p.g === "Female" && femaleMap[chosen]) return femaleMap[chosen];
+ if(p.g === "Male" && /(Queen|Cowgirl|Diva|Belle)/i.test(chosen)) return "Western Boss";
+ if(p.g === "Female" && /(King|Cowboy|Gentleman)/i.test(chosen)) return "Western Boss";
+ return chosen;
+}
+function getGenderSafePosterText(text, gender){
+ if(!text || text === "None") return "";
+ if(gender === "Male") return text.replace(/Queen|Cowgirl|Diva|Belle/gi, "Boss");
+ if(gender === "Female") return text.replace(/King|Cowboy|Gentleman/gi, "Boss");
+ return text;
+}
+
+function generateMain(){
+ const p=promptCore();
+ const safeTitle=getGenderSafeTitle(p);
+
+ const duoGenders = resolveCharacterGenders(p);
+ const isMultiCharacter = p.charCount && p.charCount !== "One" && p.charCount !== "None";
+ const multiChar = isMultiCharacter ? 
+ ` ${p.charCount} in the scene, ${p.roles && p.roles !== "None" ? p.roles : "multiple western characters"}, ${p.positioning && p.positioning !== "None" ? p.positioning : "standing side by side"}, all characters fully visible, balanced composition, equal visual importance, same lighting and environment, coordinated western styling, complementary outfits, no character cropped, all faces clearly visible, sharp focus. ${genderRulesText("Character 1",duoGenders.c1)} Character 1 styling: ${p.c1Style && p.c1Style !== "None" ? p.c1Style : "cohesive western luxury styling"}. ${genderRulesText("Character 2",duoGenders.c2)} Character 2 styling: ${p.c2Style && p.c2Style !== "None" ? p.c2Style : "cohesive western luxury styling"}. Do not mix male-only and female-only styling between characters.` 
+ : " single main character only, no extra people, no background crowd, no second character unless Character Count is manually changed.";
+
+ return `${p.ratio?`${p.ratio} aspect ratio, `:""}64K IMAX ultra-photorealistic glossy premium AI image prompt: create a ${p.style||"luxury western cinematic editorial"} image inspired by ${p.inspiration||"high-end cowgirl/cowboy fashion, rugged western realism, ornate leather, metallic detailing, warm desert atmosphere, polished poster-ready composition, and cinematic lifestyle advertising"}. ${referenceStyleModeText(p.refMode)} Composition type:${multiChar}  ${p.composition||"premium western cinematic scene"}. Framing rule: ${p.framing||"zoomed out full scene with complete subject visible and safe margins"}. ${p.animal?`Featured animal subject: ${p.animal}.`:""}
+
+Main character: full-body head-to-toe visible ${p.g} ${p.eth||"melanated"} western luxury character with ${p.skin||"glowing skin"}, ${p.eyes||"expressive eyes"}, ${p.hairColor||"rich dark"} ${p.hair||"western styled hair"}, ${p.brows||"polished brows"}, ${p.features||"defined facial features"}, ${p.face||"confident main-character expression"}${p.g==="Female"?`, ${p.lashes||"glam lashes"}, ${p.makeup||"soft glam makeup"}, ${p.nails||"polished nails"}, ${p.edges||"polished hairline"}, ${p.hairGems||"subtle western hair jewelry"}`:", clean masculine grooming, no lashes, no makeup, no nails, no hair gems, no feminine accessories"}.
+
+Wardrobe: ${p.outfit||"premium western outfit"} with ${p.shoes||"western boots"} and ${p.acc||"western accessories"}. Scene: ${p.loc||p.bg||"cinematic ranch location"} with ${p.bge||"western background elements"}, ${p.products||"western props"}, ${p.ornate||"ornate metallic details"}. Lighting: ${p.light||"golden cinematic light"}, ${p.shadow||"soft grounded shadow"}, ${p.fog||"subtle atmospheric haze"}, ${p.time||"golden hour"}, ${p.weather||"clear glowing weather"}, ${p.season||"timeless western season"}. Color palette: ${p.palette||"black, bronze, cream, and gold"}. Camera: ${p.camera||"full body portrait"}, complete anatomy visible, feet fully included, no cropped legs, no half-body framing unless manually requested, camera pulled back far enough to show the complete horse or animal when included, horse face fully inside frame, ears fully visible, muzzle not cropped, tail not cropped, legs not cropped, rider and animal contained inside the frame with safe breathing room. Effects: ${p.effects||"glossy reflections, dust glow, premium editorial polish"}. ${p.textMode==="Clean Image Only" ? `No text, no words, no letters, no typography, no title, no logo, no watermark, no branding, clean cinematic image only.` : ((safeTitle||getGenderSafePosterText(p.text,p.g))?`Add readable poster title text: "${safeTitle||getGenderSafePosterText(p.text,p.g)}" using ${p.font||"bold western luxury typography"}, balanced and not messy. Title text must match the character gender correctly. If the character is male, never use Queen, Cowgirl, Diva, or feminine title labels. If the character is female, never use King, Cowboy, Gentleman, or masculine title labels.`:"")} Scene-matching rules: if the inspiration is double exposure, blend the cowgirl/cowboy profile with sunset landscapes, horses, mountains, and glowing orange skies inside the silhouette. If the scene is animal-focused or no-human, prioritize the horse, bull, farm dog, chickens, ranch, pasture, tree swing, or farmhouse atmosphere and do not force a human character unless selected. If the scene is rodeo action, freeze motion with dust, silhouette, lasso arcs, flying dirt, and powerful backlight while keeping the entire rider, horse, bull, horns, ears, muzzle, legs, and lasso loop inside the frame. If the scene is soft ranch nostalgia, use warm sunset glow, shallow depth of field, peaceful animals, and cozy countryside storytelling. Single-character default rule: when Character Count is One, create exactly one main character only and do not add extra people, partner characters, background crowds, or duplicate subjects. Typography rule: never mismatch gendered poster words; male characters need masculine or neutral titles, female characters need feminine or neutral titles. Final finish: hyper-realistic, glossy, premium, highly detailed, sharp focus, cinematic depth of field, realistic shadows, luxury western advertisement quality, 8K-ready.`;
+}
+function generateNegativePrompt(){
+ const p = promptCore();
+ const cleanTextRule = p.textMode === "Clean Image Only"
+ ? ", text, words, letters, typography, logo, watermark, branding, title text, poster text, random labels"
+ : ", misspelled text, wrong gender title, mismatched king queen wording, unreadable typography, messy text placement, random watermark, fake logo";
+ return `Negative prompt:
+cropped horse face, cropped animal ears, cropped muzzle, cropped tail, cropped legs, cut off feet, cut off rider, half body crop, tight crop, bad framing, subject too close to edge, missing horse anatomy, missing animal body, extra limbs, extra fingers, bad hands, distorted hands, bad feet, twisted legs, deformed face, uneven eyes, distorted eyes, melted face, plastic skin, blurry face, low resolution, messy background, chaotic composition, duplicate character, unwanted extra people, background crowd, incorrect gender styling, male with lashes, male with makeup, male with nails, male with feminine accessories, female with masculine-only title, bad saddle anatomy, distorted horse, distorted bull, broken reins, floating objects, unrealistic shadows, flat lighting, overexposed highlights, muddy details${cleanTextRule}`;
+}
+function generateVideo(){
+ const p = promptCore();
+
+ const characterLabel = p.charCount && p.charCount !== "One" && p.charCount !== "None"
+ ? `${p.charCount} ${p.roles && p.roles !== "None" ? p.roles : "western characters"}`
+ : `${p.g || "western"} ${p.g === "Male" ? "cowboy" : "cowgirl"}`;
+
+ const place = p.loc || p.bg || "cinematic western ranch";
+ const animal = p.animal && p.animal !== "None" ? p.animal : "";
+ const lighting = p.light || "golden cinematic light";
+ const mood = p.refMode && p.refMode !== "None" ? p.refMode : (p.style || "luxury western editorial");
+ const outfit = p.outfit || "premium western outfit";
+ const effects = p.effects || "dust glow and glossy cinematic polish";
+ const title = getGenderSafeTitle(p);
+
+ let action = "walks forward with confident western main-character energy";
+ if(animal.includes("horse")) action = "moves beside the horse while dust and sunset light wrap around the scene";
+ if(animal.includes("bull")) action = "holds a powerful rodeo stance as arena dust rises behind them";
+ if(animal.includes("dog") || animal.includes("chickens")) action = "moves through the warm farmhouse scene as ranch animals shift naturally nearby";
+ if(p.refMode === "Double Exposure Spirit Horse") action = "turns slowly as the giant spirit horse and sunset landscape blend behind them";
+ if(p.refMode === "Rodeo Action Dust") action = "bursts through arena dust with rodeo motion, lasso energy, and dramatic backlight";
+ if(p.refMode === "Romantic Horse Bond") action = "leans close to the horse with a soft emotional western moment";
+ if(p.refMode === "Farmhouse Golden Hour") action = "walks through the golden farmyard with peaceful ranch-life movement";
+
+ const westernDetails = animal ? `Featured animal: ${animal}` : "Featured animal: none unless already shown in the main prompt";
+ const titleLine = title ? `Poster/title moment: ${title} appears as readable western text if Poster Text mode is selected.` : "No title moment unless text mode allows it.";
+ const detailMotion = pick(["boot dust, swinging fringe, hat brim shadow, and glowing reins", "slow lasso arc, saddle shine, jacket movement, and drifting smoke", "gold dust sparkle, leather texture, horse movement, and cinematic sun flare", "wanted-poster flash, saloon light sweep, spinning dust, and luxury close-up details"]);
+ const voiceLine = pick(["This ain’t regular western… this is luxury with dust on it.", "Boots in the dirt, shine in the soul.", "Ride bold, shine louder, leave them staring.", "Country heat, glossy finish, main-character energy.", "Out west, we don’t whisper confidence."]);
+
+ return `8-second animated western video script based on the generated prompt:
+
+Core visual:
+${characterLabel} in ${outfit} at ${place}.
+${westernDetails}
+Lighting: ${lighting}
+Style mood: ${mood}
+Effects: ${effects}
+
+Animation:
+0-2s: Wide establishing shot shows the full western scene with safe margins and no cropped subject.
+2-4s: The camera glides forward as the subject ${action}.
+4-6s: Cut to detail motion: ${detailMotion}.
+6-8s: Hero freeze frame with glossy cinematic western polish. ${titleLine}
+
+Voiceover:
+"${voiceLine}"`;
+}
+function musicText(kind){
+ const p=promptCore();
+
+ const selectedGenres = selectedChips('genreChips');
+ const selectedStyles = selectedChips('styleChips');
+ const vocal = selectedChips('vocalChips').join(", ") || "Vocal";
+
+ const genres = selectedGenres.length ? selectedGenres.join(", ") : "Country, R&B, Soul, Hip-Hop";
+ const styles = selectedStyles.length ? selectedStyles.join(", ") : "Beyoncé, SZA, H.E.R., Rihanna";
+
+ const characterLabel = p.charCount && p.charCount !== "One" && p.charCount !== "None"
+ ? `${p.charCount} ${p.roles && p.roles !== "None" ? p.roles : "western characters"}`
+ : `${p.g || "western"} ${p.g === "Male" ? "cowboy" : "cowgirl"}`;
+
+ const place = p.loc || p.bg || "cinematic western ranch";
+ const animal = p.animal && p.animal !== "None" ? p.animal : "western scene";
+ const mood = p.refMode && p.refMode !== "None" ? p.refMode : (p.style || "luxury western editorial");
+ const title = getGenderSafeTitle(p) || "Ride or Shine";
+
+ let tempo = "mid-tempo";
+ let feel = "smooth Country R&B with dusty western guitar, soulful vocals, warm bass, soft trap drums, and luxury rodeo confidence";
+ if(p.refMode === "Rodeo Action Dust") feel = "high-energy Country R&B with arena drums, stomps, hand claps, dusty guitar riffs, soulful hooks, and rodeo hype";
+ if(p.refMode === "Romantic Horse Bond") feel = "slow Country R&B ballad with warm guitar, soft piano, emotional vocals, and sunset romance";
+ if(p.refMode === "Farmhouse Golden Hour") feel = "warm Country Soul R&B with acoustic guitar, porch-swing groove, soft harmonies, and golden-hour calm";
+ if(p.refMode === "Double Exposure Spirit Horse") feel = "cinematic Country R&B with dreamy pads, soulful vocals, echo guitar, and spiritual western atmosphere";
+ if(p.refMode === "Western Poster / Title Art") feel = "bold Country R&B anthem with stomping drums, catchy hook, western guitar, and glossy poster energy";
+
+ const hookLines = [
+  `Boots in the dust, heart full of gold`,
+  `Riding through the sunset, watch my story unfold`,
+  `Country soul with a luxury shine`,
+  `I don’t chase the road, I make it mine`
+ ];
+
+ const rodeoLines = [
+  `Kick up the dust when I step in the ring`,
+  `Rodeo lights and the whole crowd sings`,
+  `Lasso my dream, let the bass line roll`,
+  `Western fire with an R&B soul`
+ ];
+
+ const romanticLines = [
+  `Soft like the sunset, strong like the reins`,
+  `Your heart and mine in the golden plains`,
+  `Slow ride home under amber skies`,
+  `Love looks better where the wild wind flies`
+ ];
+
+ let lines = hookLines;
+ if(p.refMode === "Rodeo Action Dust") lines = rodeoLines;
+ if(p.refMode === "Romantic Horse Bond") lines = romanticLines;
+ lines = shuffleArray([...lines]);
+
+ const lyricBlock = kind.includes("Jingle") 
+ ? `${lines[0]}\n${lines[2]}\n${title}, I’m ready to shine`
+ : kind.includes("30")
+ ? `${lines[0]}\n${lines[1]}\n${lines[2]}\n${lines[3]}\nHook: ${title}, ride or shine tonight`
+ : `${lines[0]}\n${lines[1]}\n${lines[2]}\n${lines[3]}\nVerse: ${characterLabel} at ${place}, ${animal} in the glow\nHook: ${title}, ride or shine tonight\nOutro: Country heart, R&B soul, western gold`;
+
+ return `${kind} Suno prompt under 1000 characters:
+Genre blend: ${genres}. Main feel: Country + R&B fusion.
+Style influence references only: ${styles}. Vocal type: ${vocal}.
+Sound direction: ${feel}.
+Prompt match: ${characterLabel}, ${place}, ${animal}, ${mood}.
+Suggested tempo: ${tempo}. Use soulful lead vocals, warm harmonies, western guitar, smooth bass, clap/stomp rhythm, and a polished radio-ready hook.
+
+Lyrics:
+${lyricBlock}`.slice(0,999);
+}
+function marketing(){
+ const p=promptCore();
+ const safeTitle=getGenderSafeTitle(p);
+
+ const duoGenders = resolveCharacterGenders(p);
+ const isMultiCharacter = p.charCount && p.charCount !== "One" && p.charCount !== "None";
+ const multiChar = isMultiCharacter ? 
+ ` ${p.charCount} in the scene, ${p.roles && p.roles !== "None" ? p.roles : "multiple western characters"}, ${p.positioning && p.positioning !== "None" ? p.positioning : "standing side by side"}, all characters fully visible, balanced composition, equal visual importance, same lighting and environment, coordinated western styling, complementary outfits, no character cropped, all faces clearly visible, sharp focus. ${genderRulesText("Character 1",duoGenders.c1)} Character 1 styling: ${p.c1Style && p.c1Style !== "None" ? p.c1Style : "cohesive western luxury styling"}. ${genderRulesText("Character 2",duoGenders.c2)} Character 2 styling: ${p.c2Style && p.c2Style !== "None" ? p.c2Style : "cohesive western luxury styling"}. Do not mix male-only and female-only styling between characters.` 
+ : " single main character only, no extra people, no background crowd, no second character unless Character Count is manually changed.";
+
+ return `Captions:
+1. Western luxury just got a whole damn glow-up.
+2. This prompt turns cowgirl/cowboy energy into scroll-stopping AI art.
+3. Boots, gold, grit, glam — all in one premium image prompt.
+
+Hashtags:
+#AIPrompts #WesternAesthetic #CowgirlStyle #CowboyStyle #DigitalProducts #AIImagePrompt #PromptGenerator #LuxuryWestern #ContentCreatorTools
+
+SEO Keywords:
+luxury western AI prompt, cowgirl AI image prompt, cowboy prompt generator, glossy western art prompt, cinematic ranch AI image, AI prompt for digital products
+
+Calls to Action:
+Copy the prompt, paste it into ChatGPT, Gemini, Bing, or your favorite AI image tool, and create your next premium western visual.
+
+Email Promo Copy:
+Subject: Your western glam visuals just got easier
+Body: Create premium cowgirl, cowboy, saloon, ranch, horseback, and wanted-poster style images without starting from scratch. This generator gives you polished prompts built for glossy, cinematic, 8K-style results.
+
+Pinterest Promo Copy:
+Save this for your next western AI art project. Perfect for digital products, posters, social content, mockups, and scroll-stopping visuals.
+
+TikTok Promo Copy:
+POV: You needed one prompt and got a whole luxury western photoshoot.
+
+Facebook Promo Copy:
+Create bold western-inspired AI images with polished prompts built for content creators, sellers, and digital product designers.
+
+Instagram Promo Copy:
+Luxury western meets AI magic. Create cowgirl/cowboy visuals that look expensive, cinematic, and ready to post.
+
+YouTube Promo Copy:
+Use this generator to build high-end western AI prompts for characters, posters, videos, songs, and marketing content.
+
+Ad Copy:
+Stop guessing prompts. Generate premium western AI images with full-body framing, cinematic lighting, luxury styling, and sales-ready marketing content.`;
+}
+function customGPT(){
+ return `Custom GPT Instructions:
+You are a Luxury Western AI Prompt Generator based on a single-page generator system. Your purpose is to help users create premium hyper-realistic glossy 8K AI image prompts inspired by western cowgirl, cowboy, ranch, saloon, horseback, wanted poster, whiskey lounge, and cinematic outlaw aesthetics.
+
+Use categories including aspect ratio, gender, ethnicity, skin tone, hair, outfit, shoes, accessories, art style, background, camera angle, lighting, shadow, color palette, text option, products, ornate elements, weather, season, time of day, and effects.
+
+Always respect gender-lock logic. Male prompts must not include lashes, makeup, nails, hair gems, hair edges, women outfits, women shoes, or women accessories. Female prompts must not include male-only categories unless requested.
+
+Default to full-body head-to-toe framing. Reinforce visible feet, no cropped legs, no half-body output unless the user asks.
+
+Create polished prompts, 8-second video scripts, Suno music prompts, marketing copy, and Custom GPT knowledge based on the selected concept.`;
+}
+function starters(){return `Starter Questions:
+1. Create a full-body glossy cowgirl prompt with black leather, gold details, and a desert ranch background.
+2. Build a cinematic cowboy prompt with denim, leather chaps, golden hour lighting, and a horse ranch.
+3. Make a luxury wanted-poster style western prompt with readable text and vintage gold typography.
+4. Give me a cow print glam cowgirl prompt with 8-second video script and Suno song idea.`}
+function knowledge(){return `Knowledge:
+This generator creates premium AI image prompts based on luxury western reference styles. It combines full-body character framing, strict gender-lock styling, cinematic camera language, glossy 8K rendering, detailed lighting, ornate western elements, background props, color palettes, typography, and platform-ready marketing outputs.
+
+The system supports female cowgirl, male cowboy, outlaw, ranch, saloon, horseback, campfire, whiskey lounge, wanted poster, cow print, denim, leather, fringe, rhinestone, chrome, bronze, and gold visual directions.
+
+The prompt assembly logic uses selected dropdown values plus custom user text. Custom text overrides dropdown choices. Locked categories stay unchanged during randomization. Randomization avoids obvious mismatches by respecting visible gender categories.`;
+}
+function generateAll(){
+ const main=generateMain(); document.getElementById('mainOutput').textContent=main;
+ document.getElementById('videoOutput').textContent=generateVideo();
+ document.getElementById('negativeOutput').textContent=generateNegativePrompt();
+ document.getElementById('jingleOutput').textContent=musicText("Jingle");
+ document.getElementById('song30Output').textContent=musicText("30-second song");
+ document.getElementById('song60Output').textContent=musicText("1-minute song");
+ document.getElementById('settingsOutput').textContent=`Suggested Suno Settings:
+Genres: ${selectedChips('genreChips').join(", ")||"Country, R&B, Hip-Hop"}
+Style influences: ${selectedChips('styleChips').join(", ")||"Beyoncé, Rihanna, Tyla"}
+Vocal type: ${selectedChips('vocalChips').join(", ")||"Vocal"}
+Weirdness: ${weirdness.value}%
+Style Influence: ${styleInf.value}%
+Audio Influence: ${audioInf.value}%`;
+ document.getElementById('marketingOutput').textContent=marketing();
+ document.getElementById('gptOutput').textContent=customGPT();
+ document.getElementById('starterOutput').textContent=starters();
+ document.getElementById('knowledgeOutput').textContent=knowledge();
+}
+function makeVariations(){
+ const id=["Gender","Ethnicity","Skin Tone"].reduce((o,c)=>(o[c]=val(c),o),{});
+ const outs=[];
+ for(let i=0;i<3;i++){
+   ["Hair Color","Hairstyle","Art Style","Camera Angle","Lighting","Shadow","Font Style","Facial Expression","Facial Features","Aspect Ratio","Background","Location","Color Palette"].forEach(c=>{const el=document.getElementById(c.replaceAll(' ','_')); if(el&&!locks[c]) el.value=pick([...el.options].map(o=>o.value).filter(v=>v!=="None"));});
+   const g=val("Gender"); const outfit=g==="Male"?"Men Outfits":"Women Outfits", shoes=g==="Male"?"Men Shoes":"Women Shoes", acc=g==="Male"?"Men Accessories":"Women Accessories";
+   [outfit,shoes,acc].forEach(c=>{const el=document.getElementById(c.replaceAll(' ','_')); if(el&&!locks[c]) el.value=pick([...el.options].map(o=>o.value).filter(v=>v!=="None"));});
+   Object.entries(id).forEach(([c,v])=>setVal(c,v));
+   outs.push(`VARIATION ${i+1}\n${generateMain()}`);
+ }
+ document.getElementById('varOutput').textContent=outs.join("\n\n");
+ generateAll();
+}
+function copyBox(id){navigator.clipboard.writeText(document.getElementById(id).textContent)}
+function savePrompt(){const h=document.getElementById('history');h.textContent=(document.getElementById('mainOutput').textContent+"\n\n--- SAVED ---\n\n")+h.textContent}
+function chips(id,items,single=false){
+ const box=document.getElementById(id); items.forEach((x,i)=>{const c=document.createElement('button');c.className='chip';c.type='button';c.dataset.v=x;c.textContent=x;c.onclick=()=>{if(single)[...box.children].forEach(k=>k.classList.remove('active'));c.classList.toggle('active')};if(i<3&&!single)c.classList.add('active');if(single&&i===0)c.classList.add('active');box.appendChild(c);});
+}
+function showSliders(){weirdnessVal.textContent=weirdness.value+"%";styleInfVal.textContent=styleInf.value+"%";audioInfVal.textContent=audioInf.value+"%";}
+buildControls();buildPresets();
+chips('genreChips',["Country","R&B","Western Soul","Country Trap","Soul","Hip-Hop","Pop","Afrobeats","Jazz","Gospel","Dancehall","Reggae","Electronic","Lo-fi","Trap","House","Funk","Neo-Soul","Drill","Amapiano","Highlife","Afro-fusion","Classical","Blues","Rock","Indie","Latin","K-Pop","Synthwave"]);
+chips('styleChips',["Beyoncé","SZA","Rihanna","Doja Cat","H.E.R.","Erykah Badu","Janelle Monáe","Solange","Megan Thee Stallion","Cardi B","FKA Twigs","Frank Ocean","The Weeknd","Billie Eilish","Tyla","Dolly Parton","Shania Twain","Tina Turner","Prince","Janet Jackson"],false);
+chips('vocalChips',["Vocal","Instrumental"],true);
+showSliders(); setupSideScrollButtons(); document.addEventListener("DOMContentLoaded", setupSideScrollButtons); generateAll();
+</script>
+</body>
+</html>
